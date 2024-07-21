@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils/tailwind";
-import Project from "./project";
+import Project from "@/components/custom-ui/projects/project";
 
 type ProjectsProps = {
   num: number;
@@ -11,7 +11,7 @@ type ProjectsProps = {
 const Projects = ({ num, title, className, params }: ProjectsProps) => {
   return (
     <div className={cn("pl-4", className)}>
-      <h1 className="animate-text-enter mb-4 uppercase">{title}</h1>
+      <h1 className="mb-4 animate-text-enter uppercase">{title}</h1>
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         {Array(num)
           .fill(undefined)

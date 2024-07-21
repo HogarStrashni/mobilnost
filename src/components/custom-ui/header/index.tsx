@@ -1,8 +1,8 @@
 import Link from "next/link";
 import Logo from "@/components/custom-ui/logo";
 import SocialMediaLinks from "@/components/custom-ui/social-media-links";
-import NavigationBar from "./navigation-bar";
-import SideBar from "./side-bar";
+import NavigationBar from "@/components/custom-ui/header/navigation-bar";
+import SideBar from "@/components/custom-ui/header/side-bar";
 
 const Header = () => {
   return (
