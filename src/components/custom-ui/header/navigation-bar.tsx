@@ -13,16 +13,20 @@ type NavigationBarProps = {
 
 const NavigationBar = ({ className }: NavigationBarProps) => {
   return (
-    <div className={cn("flex gap-2 py-8", className)}>
-      {allCategories.map(({ name }) => (
-        <Link
-          key={name}
-          href={`/${name}`}
-          className="text-lg font-semibold uppercase"
-        >
-          {name}
-        </Link>
-      ))}
+    <div className={cn("bg-gray-200 py-3 text-gray-700", className)}>
+      <div className="mx-auto w-full max-w-screen-xl">
+        <div className="mx-auto flex max-w-fit gap-3">
+          {allCategories.map(({ name }) => (
+            <Link
+              key={name}
+              href={`/${name}`}
+              className="scale-y-110 font-semibold uppercase"
+            >
+              {name}
+            </Link>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };

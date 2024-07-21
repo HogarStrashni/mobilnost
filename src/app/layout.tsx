@@ -19,11 +19,11 @@ const RootLayout = ({
 }>) => {
   return (
     <html lang="en">
-      <body
-        className={`${inter.className} mx-auto flex min-h-screen max-w-screen-xl flex-col border px-5 md:px-8`}
-      >
+      <body className={`${inter.className} mx-auto flex min-h-screen flex-col`}>
         <Header />
-        <main className="flex-1 py-8">{children}</main>
+        <main className="mx-auto w-full max-w-screen-xl flex-1 border px-5 py-8 md:px-8">
+          {children}
+        </main>
         <Footer />
       </body>
     </html>
