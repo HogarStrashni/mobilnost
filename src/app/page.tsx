@@ -1,5 +1,5 @@
 const Home = () => {
-  return <main>HELLO WORLD</main>;
+  return <main className="flex-1">HELLO WORLD</main>;
 };
 
 export default Home;
