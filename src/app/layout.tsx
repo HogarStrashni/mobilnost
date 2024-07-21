@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ReactNode } from "react";
+import Header from "@/components/custom-ui/header";
+import Footer from "@/components/custom-ui/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,7 +19,13 @@ const RootLayout = ({
 }>) => {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body
+        className={`${inter.className} mx-auto flex min-h-screen max-w-screen-xl flex-col border px-5 md:px-8`}
+      >
+        <Header />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 };
