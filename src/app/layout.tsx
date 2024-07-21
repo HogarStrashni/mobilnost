@@ -23,7 +23,7 @@ const RootLayout = ({
         className={`${inter.className} mx-auto flex min-h-screen max-w-screen-xl flex-col border px-5 md:px-8`}
       >
         <Header />
-        {children}
+        <main className="flex-1 py-8">{children}</main>
         <Footer />
       </body>
     </html>
