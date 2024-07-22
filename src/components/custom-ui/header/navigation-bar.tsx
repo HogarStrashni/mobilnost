@@ -22,8 +22,9 @@ const NavigationBar = ({ className }: NavigationBarProps) => {
               href={`/${name}`}
               className={cn(
                 "scale-y-110 font-medium uppercase",
-                isActiveLink(name) &&
-                  "bg-gradient-to-br from-green-600 to-violet-600 bg-clip-text text-transparent",
+                isActiveLink(name)
+                  ? "bg-gradient-to-br from-green-600 to-violet-600 bg-clip-text text-transparent"
+                  : "hover:text-gray-900",
               )}
             >
               {name}
