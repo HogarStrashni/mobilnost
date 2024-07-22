@@ -1,9 +1,12 @@
-import { convertToCountdown } from "@/lib/utils/convert-to-countdown";
 import Counter from "@/components/custom-ui/counter";
 
 const Home = () => {
-  const now = new Date().getTime();
-  const initialValue = convertToCountdown(now);
+  const initialValue = {
+    days: 42,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  };
 
   return (
     <main className="flex flex-1 flex-col items-center justify-center">
