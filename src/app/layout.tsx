@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import "./globals.css";
 import { ReactNode } from "react";
 import Footer from "@/components/custom-ui/footer";
 
-const inter = Inter({ subsets: ["latin"] });
+const montserrat = Montserrat({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Mobilnost.ba",
@@ -19,7 +19,7 @@ const RootLayout = ({
   return (
     <html lang="en">
       <body
-        className={`${inter.className} h-screen bg-gradient-to-br from-green-500 to-violet-500`}
+        className={`${montserrat.className} h-screen bg-gradient-to-br from-green-500 to-violet-500`}
       >
         <div className="mx-auto flex h-full max-w-screen-xl flex-col px-5 py-8 md:px-8">
           {children}
