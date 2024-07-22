@@ -1,3 +1,5 @@
+import Counter from "@/components/custom-ui/counter";
+
 const Home = () => {
   return (
     <main className="flex flex-1 flex-col items-center justify-center">
@@ -7,6 +9,7 @@ const Home = () => {
       <p className="xxs:text-base mt-1 text-center text-sm sm:text-xl md:text-3xl">
         Our website is under construction
       </p>
+      <Counter />
     </main>
   );
 };
