@@ -1,5 +1,11 @@
 "use client";
 
+import Link from "next/link";
+import { cn } from "@/lib/utils/tailwind";
+import { allCategories } from "@/lib/categories";
+import { useActiveLink } from "@/lib/hooks/use-active-link";
+
+import { Menu } from "lucide-react";
 import {
   Sheet,
   SheetClose,
@@ -9,11 +15,10 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { allCategories } from "@/lib/categories";
-import { Menu } from "lucide-react";
-import Link from "next/link";
 
 const SideBar = () => {
+  const isActiveLink = useActiveLink();
+
   return (
     <Sheet>
       <SheetTrigger className="lg:hidden">
@@ -31,7 +36,11 @@ const SideBar = () => {
               <Link
                 href={`/${name}`}
                 key={name}
-                className="block scale-y-110 uppercase"
+                className={cn(
+                  "scale-y-110 font-medium uppercase",
+                  isActiveLink(name) &&
+                    "bg-gradient-to-br from-green-600 to-violet-600 bg-clip-text text-transparent",
+                )}
               >
                 {name}
               </Link>

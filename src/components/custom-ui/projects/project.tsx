@@ -1,6 +1,6 @@
+import Link from "next/link";
 import Image from "next/image";
 import placeholder from "@/assets/placeholder.png";
-import Link from "next/link";
 
 type ProjectProps = {
   params?: string;

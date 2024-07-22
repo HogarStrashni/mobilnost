@@ -1,5 +1,4 @@
 import Projects from "@/components/custom-ui/projects";
-import React from "react";
 
 type CategoryPageProps = {
   params: {
