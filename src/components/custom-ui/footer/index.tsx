@@ -1,8 +1,8 @@
 const Footer = () => {
   return (
     <footer className="flex flex-col items-center">
-      <span className="xxs:text-lg text-center italic">mobilnost.ba</span>
-      <span className="text-center text-xs">
+      <span className="text-center italic sm:text-lg">mobilnost.ba</span>
+      <span className="text-center text-[10px] sm:text-xs">
         Copyright &#169; 2024 All right reserved!
       </span>
     </footer>
