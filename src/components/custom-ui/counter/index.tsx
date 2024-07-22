@@ -9,7 +9,7 @@ const mockedData = [
 
 const Counter = () => {
   return (
-    <div className="mt-8 flex gap-4">
+    <div className="mt-8 flex gap-3 sm:mt-10 sm:gap-4 md:mt-16">
       {mockedData.map(({ count, measure }) => (
         <CounterContent key={measure} count={count} measure={measure} />
       ))}
