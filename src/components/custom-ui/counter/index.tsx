@@ -1,17 +1,20 @@
-import CounterContent from "./counter-content";
+"use client";
 
-const mockedData = [
-  { count: 30, measure: "days" },
-  { count: 35, measure: "hours" },
-  { count: 19, measure: "minutes" },
-  { count: 8, measure: "seconds" },
-];
+import { useCountdown } from "@/lib/hooks/use-countdown";
+import { ConvertToCountdown } from "@/lib/utils/convert-to-countdown";
+import CounterContent from "@/components/custom-ui/counter/counter-content";
 
-const Counter = () => {
+type CounterProps = {
+  initialValue: ConvertToCountdown;
+};
+
+const Counter = ({ initialValue }: CounterProps) => {
+  const deadline = useCountdown(initialValue);
+
   return (
     <div className="mt-8 flex gap-3 sm:mt-10 sm:gap-4 md:mt-16">
-      {mockedData.map(({ count, measure }) => (
-        <CounterContent key={measure} count={count} measure={measure} />
+      {Object.entries(deadline).map(([unit, value]) => (
+        <CounterContent key={unit} unit={unit} value={value} />
       ))}
     </div>
   );
