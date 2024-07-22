@@ -19,7 +19,7 @@ const RootLayout = ({
   return (
     <html lang="en">
       <body
-        className={`${montserrat.className} h-screen bg-gradient-to-br from-green-500 to-violet-500`}
+        className={`${montserrat.className} h-[100dvh] bg-gradient-to-br from-green-500 to-violet-500`}
       >
         <div className="mx-auto flex h-full max-w-screen-xl flex-col px-5 py-8 md:px-8">
           {children}
