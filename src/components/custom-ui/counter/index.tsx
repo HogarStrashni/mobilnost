@@ -11,7 +11,7 @@ const Counter = () => {
   return (
     <div className="mt-8 flex gap-4">
       {mockedData.map(({ count, measure }) => (
-        <CounterContent count={count} measure={measure} />
+        <CounterContent key={measure} count={count} measure={measure} />
       ))}
     </div>
   );
