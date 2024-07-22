@@ -1,13 +1,12 @@
 import { ReactNode } from "react";
-
 import Header from "@/components/custom-ui/header";
 import Projects from "@/components/custom-ui/projects";
 
-const RootTemplate = ({
-  children,
-}: Readonly<{
+type RootTemplateProps = {
   children: ReactNode;
-}>) => {
+};
+
+const RootTemplate = ({ children }: RootTemplateProps) => {
   return (
     <>
       <Header />
