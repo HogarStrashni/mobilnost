@@ -14,7 +14,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <>
           <a
             href="/"
-            className="absolute bottom-10 right-10 z-50 flex flex-col items-center justify-center text-gray-600"
+            className="absolute bottom-16 right-10 z-50 flex flex-col items-center justify-center text-gray-600"
           >
             <Home className="size-10" />
             <span>home</span>
