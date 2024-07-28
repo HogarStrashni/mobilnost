@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { cn } from "@/lib/utils/tailwind";
-import { allCategories } from "@/lib/categories";
 import { useActiveLink } from "@/lib/hooks/use-active-link";
 
 import { Menu } from "lucide-react";
