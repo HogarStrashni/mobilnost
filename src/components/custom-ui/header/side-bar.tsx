@@ -15,8 +15,13 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { Category } from "@/sanity/types";
 
-const SideBar = () => {
+type SideBarProps = {
+  allCategories: Array<Category>;
+};
+
+const SideBar = ({ allCategories }: SideBarProps) => {
   const isActiveLink = useActiveLink();
 
   return (
@@ -31,18 +36,18 @@ const SideBar = () => {
         </SheetHeader>
         <h2 className="my-8 scale-y-110">ALL CATEGORIES</h2>
         <nav className="flex flex-col gap-4">
-          {allCategories.map(({ name }) => (
-            <SheetClose asChild key={name}>
+          {allCategories.map(({ title, slug }) => (
+            <SheetClose asChild key={slug}>
               <Link
-                href={`/${name}`}
-                key={name}
+                href={`/${slug}`}
+                key={slug}
                 className={cn(
                   "scale-y-110 font-medium uppercase",
-                  isActiveLink(name) &&
+                  isActiveLink(slug) &&
                     "bg-gradient-to-br from-green-600 to-violet-600 bg-clip-text text-transparent",
                 )}
               >
-                {name}
+                {title}
               </Link>
             </SheetClose>
           ))}
