@@ -3,11 +3,11 @@
 import Link from "next/link";
 import { cn } from "@/lib/utils/tailwind";
 import { useActiveLink } from "@/lib/hooks/use-active-link";
-import { Category } from "@/sanity/types";
+import { CATEGORY_QUERYResult } from "@/sanity/types";
 
 type NavigationBarProps = {
   className?: string;
-  allCategories: Array<Category>;
+  allCategories: CATEGORY_QUERYResult;
 };
 
 const NavigationBar = ({ className, allCategories }: NavigationBarProps) => {
