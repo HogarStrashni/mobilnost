@@ -9,7 +9,6 @@ const article = {
       name: "title",
       title: "Naslov clanka",
       type: "string",
-      description: "Naslov clanka pisati malim slovima",
       validation: (rule: Rule) => rule.required(),
     },
     {
@@ -24,6 +23,13 @@ const article = {
       validation: (rule: Rule) => rule.required(),
     },
     {
+      name: "actual",
+      title: "Aktuelan clanak?",
+      type: "boolean",
+      description: "Da li je clanak aktuelan ili ne",
+      initialValue: false,
+    },
+    {
       name: "author",
       title: "Autor clanka",
       type: "string",
@@ -36,7 +42,7 @@ const article = {
       name: "content",
       title: "Sadrzaj clanka",
       description:
-        "Kreirati sadrzaj clanka na nacin kako ce isti biti prikazan",
+        "Kreirati sadrzaj clanka na nacin kako ce isti biti prikazan bez medjusobnog razmaka izmedju tekstova i(li) fotografija",
       type: "array",
       of: [
         { type: "block" },
