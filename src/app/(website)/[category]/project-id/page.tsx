@@ -10,8 +10,6 @@ const IndividualProject = async () => {
   const { title, slug, author, category, createdAt, tags, content } =
     singleArticle ?? {};
 
-  console.log(singleArticle);
-
   return (
     <div className="space-y-6 pb-12 lg:border-r lg:pr-4">
       <h1 className="text-lg uppercase">{title}</h1>
