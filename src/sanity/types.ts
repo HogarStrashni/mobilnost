@@ -240,63 +240,6 @@ export type CATEGORY_QUERYResult = Array<{
   title: string | null;
   slug: string | null;
 }>;
-// Variable: ARTICLE_QUERY
-// Query:   *[_type == "article"][0]{    title,    author,    "slug": slug.current,    "createdAt": _createdAt,    "category": articleCategory -> {title, "slug":slug.current},    "tags": tags[] -> {title, "slug": slug.current},    content  }
-export type ARTICLE_QUERYResult = {
-  title: string | null;
-  author: string | null;
-  slug: string | null;
-  createdAt: string;
-  category: {
-    title: string | null;
-    slug: string | null;
-  } | null;
-  tags: Array<{
-    title: string | null;
-    slug: string | null;
-  }> | null;
-  content: Array<
-    | {
-        children?: Array<{
-          marks?: Array<string>;
-          text?: string;
-          _type: "span";
-          _key: string;
-        }>;
-        style?:
-          | "blockquote"
-          | "h1"
-          | "h2"
-          | "h3"
-          | "h4"
-          | "h5"
-          | "h6"
-          | "normal";
-        listItem?: "bullet" | "number";
-        markDefs?: Array<{
-          href?: string;
-          _type: "link";
-          _key: string;
-        }>;
-        level?: number;
-        _type: "block";
-        _key: string;
-      }
-    | {
-        asset?: {
-          _ref: string;
-          _type: "reference";
-          _weak?: boolean;
-          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-        };
-        hotspot?: SanityImageHotspot;
-        crop?: SanityImageCrop;
-        imageAlt?: string;
-        _type: "image";
-        _key: string;
-      }
-  > | null;
-} | null;
 // Variable: ARCTICLES_HOME_PAGE_QUERY
 // Query:   *[_type == "category"] | order(_createdAt asc){    "category": title,    "slug": slug.current,    "actualArticles": *[_type == "article"       && actual == true      && references(^._id)      ] | order(_createdAt desc)        {            title,          excerpt,          "slug": slug.current,          author,          "published": _createdAt,          coverImage,          "tags": tags[]->{title, "slug": slug.current}        },    "newestArticles": *[_type == "article"      && actual == false      && references(^._id)      ] | order(_createdAt desc)         {          title,          excerpt,          "slug": slug.current,          author,          "published": _createdAt,          coverImage,          "tags": tags[]->{title, "slug": slug.current}        }[0..3]    }
 export type ARCTICLES_HOME_PAGE_QUERYResult = Array<{
@@ -374,3 +317,62 @@ export type ARTICLES_BY_CATEGORY_QUERYResult = Array<{
     slug: string | null;
   }> | null;
 }>;
+// Variable: ARTICLE_QUERY
+// Query:     *[_type == "article" && slug.current == $articleSlug][0]{      title,      author,      "slug": slug.current,      "published": _createdAt,      "category": articleCategory -> {title, "slug":slug.current},      "tags": tags[] -> {title, "slug": slug.current},      source,      sourceUrl,      content    }
+export type ARTICLE_QUERYResult = {
+  title: string | null;
+  author: string | null;
+  slug: string | null;
+  published: string;
+  category: {
+    title: string | null;
+    slug: string | null;
+  } | null;
+  tags: Array<{
+    title: string | null;
+    slug: string | null;
+  }> | null;
+  source: string | null;
+  sourceUrl: string | null;
+  content: Array<
+    | {
+        children?: Array<{
+          marks?: Array<string>;
+          text?: string;
+          _type: "span";
+          _key: string;
+        }>;
+        style?:
+          | "blockquote"
+          | "h1"
+          | "h2"
+          | "h3"
+          | "h4"
+          | "h5"
+          | "h6"
+          | "normal";
+        listItem?: "bullet" | "number";
+        markDefs?: Array<{
+          href?: string;
+          _type: "link";
+          _key: string;
+        }>;
+        level?: number;
+        _type: "block";
+        _key: string;
+      }
+    | {
+        asset?: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        };
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        imageAlt?: string;
+        _type: "image";
+        _key: string;
+      }
+  > | null;
+} | null;

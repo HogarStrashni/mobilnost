@@ -4,11 +4,19 @@ import { ARTICLE_QUERY } from "@/sanity/queries";
 import { ARTICLE_QUERYResult } from "@/sanity/types";
 import { PortableText } from "@portabletext/react";
 
-const IndividualProject = async () => {
-  const singleArticle = await client.fetch<ARTICLE_QUERYResult>(ARTICLE_QUERY);
+type ArticlePageProps = {
+  params: {
+    articleId: string;
+  };
+};
 
-  const { title, slug, author, category, createdAt, tags, content } =
-    singleArticle ?? {};
+const ArticlePage = async ({ params: { articleId } }: ArticlePageProps) => {
+  const data = await client.fetch<ARTICLE_QUERYResult>(ARTICLE_QUERY, {
+    articleSlug: articleId,
+  });
+
+  const { title, slug, author, category, published, tags, content } =
+    data ?? {};
 
   return (
     <div className="space-y-6 pb-12 lg:border-r lg:pr-4">
@@ -18,7 +26,7 @@ const IndividualProject = async () => {
 
       <p> category: {category?.title}</p>
       <p> tags: {tags?.map((tag) => tag.title).join(", ")}</p>
-      <p> date: {createdAt}</p>
+      <p> date: {published}</p>
       <p> slug: {slug}</p>
 
       {content && <PortableText value={content} components={components} />}
@@ -26,4 +34,4 @@ const IndividualProject = async () => {
   );
 };
 
-export default IndividualProject;
+export default ArticlePage;
