@@ -1,8 +1,10 @@
+import Link from "next/link";
 import { components } from "@/components/custom-ui/article-component/image-component";
 import { client } from "@/sanity/client";
 import { ARTICLE_QUERY } from "@/sanity/queries";
 import { ARTICLE_QUERYResult } from "@/sanity/types";
 import { PortableText } from "@portabletext/react";
+import { ClockArrowUp, Rss, UserRoundPen } from "lucide-react";
 
 type ArticlePageProps = {
   params: {
@@ -15,21 +17,49 @@ const ArticlePage = async ({ params: { articleId } }: ArticlePageProps) => {
     articleSlug: articleId,
   });
 
-  const { title, slug, author, category, published, tags, content } =
+  const { title, author, published, tags, content, source, sourceUrl } =
     data ?? {};
 
   return (
-    <div className="space-y-6 pb-12 lg:border-r lg:pr-4">
-      <h1 className="text-lg uppercase">{title}</h1>
+    <div className="pb-12 lg:border-r lg:pr-4">
+      <div className="prose w-full max-w-none">
+        <div className="mb-6 flex gap-4">
+          {tags?.map(({ title }) => (
+            <span key={title} className="rounded border bg-orange-500/50 px-3">
+              {title}
+            </span>
+          ))}
+        </div>
+        <h1>{title}</h1>
 
-      <p> author: {author}</p>
+        <div className="-mt-8 flex gap-16">
+          <div className="flex items-center gap-2">
+            <UserRoundPen className="size-4" />
+            <p className="text-sm">{author}</p>
+          </div>
+          <div className="flex items-center gap-2">
+            <ClockArrowUp className="size-3" />
+            <p className="text-xs">
+              {published && new Date(published).toLocaleDateString()}
+            </p>
+          </div>
+        </div>
 
-      <p> category: {category?.title}</p>
-      <p> tags: {tags?.map((tag) => tag.title).join(", ")}</p>
-      <p> date: {published}</p>
-      <p> slug: {slug}</p>
+        {content && <PortableText value={content} components={components} />}
 
-      {content && <PortableText value={content} components={components} />}
+        {source && (
+          <div className="mt-12 flex items-center justify-end">
+            <Rss className="size-4" />
+            {sourceUrl ? (
+              <Link href={sourceUrl} target="_blank" className="ml-2">
+                {source}
+              </Link>
+            ) : (
+              <span>{source}</span>
+            )}
+          </div>
+        )}
+      </div>
     </div>
   );
 };
