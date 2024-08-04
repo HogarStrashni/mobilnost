@@ -50,7 +50,7 @@ export const ARCTICLES_HOME_PAGE_QUERY = groq`
     }`;
 
 export const ARTICLES_BY_CATEGORY_QUERY = groq`
-    *[_type == "article" && articleCategory->slug.current == $category]{
+    *[_type == "article" && articleCategory->slug.current == $category] | order(_createdAt desc){
        title,
        excerpt,
        "slug": slug.current,
