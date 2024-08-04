@@ -14,10 +14,10 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { Category } from "@/sanity/types";
+import { CATEGORY_QUERYResult } from "@/sanity/types";
 
 type SideBarProps = {
-  allCategories: Array<Category>;
+  allCategories: CATEGORY_QUERYResult;
 };
 
 const SideBar = ({ allCategories }: SideBarProps) => {
