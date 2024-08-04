@@ -16,7 +16,7 @@ const NavigationBar = ({ className, allCategories }: NavigationBarProps) => {
   return (
     <div className={cn("bg-gray-200 py-3 text-gray-700", className)}>
       <div className="mx-auto w-full max-w-screen-xl">
-        <div className="mx-auto flex max-w-fit gap-3">
+        <div className="mx-auto flex max-w-fit gap-6">
           {allCategories.map(({ title, slug }) => (
             <Link
               key={slug}
