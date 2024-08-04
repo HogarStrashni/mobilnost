@@ -23,7 +23,7 @@ const CategorySection = ({
         {category}
       </Link>
       <Separator className="mb-4" />
-      <div className="grid gap-x-4 gap-y-8 md:grid-cols-2">
+      <div className="grid gap-x-4 gap-y-8 sm:grid-cols-2">
         {newestArticles.map((article) => (
           <Link key={article.slug} href={`/${slug}/${article.slug}`}>
             <ArticlePreview article={article} />

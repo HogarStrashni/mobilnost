@@ -28,7 +28,7 @@ const CategoryPage = async ({ params: { category } }: CategoryPageProps) => {
     <div className="h-full lg:border-r lg:pr-4">
       <h2 className="text-lg font-bold uppercase">{title}</h2>
       <Separator className="mb-4" />
-      <div className="grid grid-cols-2 gap-x-4 gap-y-8">
+      <div className="grid gap-x-4 gap-y-8 sm:grid-cols-2">
         {articles.map((article) => {
           const { categorySlug, slug: articleSlug } = article;
           return (
