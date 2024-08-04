@@ -48,3 +48,14 @@ export const ARCTICLES_HOME_PAGE_QUERY = groq`
           "tags": tags[]->{title, "slug": slug.current}
         }[0..3]
     }`;
+
+export const ARTICLES_BY_CATEGORY_QUERY = groq`
+    *[_type == "article" && articleCategory->slug.current == $category]{
+       title,
+       excerpt,
+       "slug": slug.current,
+       author,
+       "published": _createdAt,
+       coverImage,
+       "tags": tags[]->{title, "slug": slug.current}
+    }`;

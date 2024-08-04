@@ -349,3 +349,28 @@ export type ARCTICLES_HOME_PAGE_QUERYResult = Array<{
     }> | null;
   }>;
 }>;
+// Variable: ARTICLES_BY_CATEGORY_QUERY
+// Query:     *[_type == "article" && articleCategory->slug.current == $category]{       title,       excerpt,       "slug": slug.current,       author,       "published": _createdAt,       coverImage,       "tags": tags[]->{title, "slug": slug.current}    }
+export type ARTICLES_BY_CATEGORY_QUERYResult = Array<{
+  title: string | null;
+  excerpt: string | null;
+  slug: string | null;
+  author: string | null;
+  published: string;
+  coverImage: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+  } | null;
+  tags: Array<{
+    title: string | null;
+    slug: string | null;
+  }> | null;
+}>;
