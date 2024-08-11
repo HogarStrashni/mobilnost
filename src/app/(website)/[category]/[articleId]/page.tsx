@@ -53,7 +53,6 @@ const ArticlePage = async ({ params: { articleId } }: ArticlePageProps) => {
             </p>
           </div>
         </div>
-
         {attachmentName && attacmentUrl && (
           <Link
             href={attacmentUrl}
@@ -63,9 +62,7 @@ const ArticlePage = async ({ params: { articleId } }: ArticlePageProps) => {
             <span>{attachmentName}</span>
           </Link>
         )}
-
         {content && <PortableText value={content} components={components} />}
-
         {source && (
           <div className="mt-12 flex items-center justify-end">
             <Rss className="size-4" />
