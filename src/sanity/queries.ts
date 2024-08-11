@@ -59,5 +59,7 @@ export const ARTICLE_QUERY = groq`
       "tags": tags[] -> {title, "slug": slug.current},
       source,
       sourceUrl,
-      content
+      content,
+      "attachmentName": attachment.attachmentName,
+      "attacmentUrl": attachment.asset->url
     }`;

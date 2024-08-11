@@ -4,7 +4,7 @@ import { client } from "@/sanity/client";
 import { ARTICLE_QUERY } from "@/sanity/queries";
 import { ARTICLE_QUERYResult } from "@/sanity/types";
 import { PortableText } from "@portabletext/react";
-import { ClockArrowUp, Rss, UserRoundPen } from "lucide-react";
+import { ClockArrowUp, FileDown, Rss, UserRoundPen } from "lucide-react";
 
 type ArticlePageProps = {
   params: {
@@ -17,8 +17,17 @@ const ArticlePage = async ({ params: { articleId } }: ArticlePageProps) => {
     articleSlug: articleId,
   });
 
-  const { title, author, published, tags, content, source, sourceUrl } =
-    data ?? {};
+  const {
+    title,
+    author,
+    published,
+    tags,
+    content,
+    source,
+    sourceUrl,
+    attachmentName,
+    attacmentUrl,
+  } = data ?? {};
 
   return (
     <div className="pb-12 lg:border-r lg:pr-4">
@@ -44,6 +53,16 @@ const ArticlePage = async ({ params: { articleId } }: ArticlePageProps) => {
             </p>
           </div>
         </div>
+
+        {attachmentName && attacmentUrl && (
+          <Link
+            href={attacmentUrl}
+            className="mt-8 flex max-w-fit items-center gap-2 rounded border px-4 py-2"
+          >
+            <FileDown className="size-4" />
+            <span>{attachmentName}</span>
+          </Link>
+        )}
 
         {content && <PortableText value={content} components={components} />}
 

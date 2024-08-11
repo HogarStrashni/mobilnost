@@ -375,4 +375,6 @@ export type ARTICLE_QUERYResult = {
         _key: string;
       }
   > | null;
+  attachmentName: string | null;
+  attacmentUrl: string | null;
 } | null;

@@ -26,7 +26,8 @@ const article = {
       name: "actual",
       title: "Aktuelan clanak?",
       type: "boolean",
-      description: "Da li je clanak aktuelan ili ne",
+      description:
+        "Da li je clanak aktuelan ili ne, odnosno da li se clanak prikazuje u sekciji 'aktuelno'",
       initialValue: false,
     },
     {
@@ -42,7 +43,7 @@ const article = {
       name: "content",
       title: "Sadrzaj clanka",
       description:
-        "Kreirati sadrzaj clanka na nacin kako ce isti biti prikazan bez medjusobnog razmaka izmedju tekstova i(li) fotografija",
+        "Kreirati sadrzaj clanka na nacin kako ce isti biti prikazan (redosled je bitan). Ukoliko clanak ima izdeljene sekcije sa podnaslovima iste oznaciti sa 'Heading 3', a ukoliko neka od sekcija dalje ima svoje podnaslove, iste oznaciti sa Heading 4. Vertikalno odvajanje sadrzaja (podnaslov od teksta, teskt od fotografije, fotografiju od teksta ili naslova, pasuse i sl.) vrsiti samo prenosom u novi red (1 enter), NE PRAVITI DODATNA VERTIKALNA RASTOJANJA (PRAZNE REDOVE) IZMEDJU SADRZAJA CLANKA",
       type: "array",
       of: [
         { type: "block" },
@@ -55,7 +56,7 @@ const article = {
               title: "Opisni tekst fotografije",
               type: "string",
               description:
-                "Kratka opisna recenica koja se prikazuje ukoliko se fotografija ne prikaze",
+                "Kratka opisna recenica koja se prikazuje ukoliko se fotografija ne prikaze (obavezno)",
             },
           ],
         },
@@ -122,6 +123,22 @@ const article = {
       type: "url",
       description:
         "Ovo polje se popunjava ukoliko postoji link prema izvoru clanka",
+    },
+    {
+      name: "attachment",
+      title: "Dokument/prilog",
+      type: "file",
+      description:
+        "Ovo polje se popunjava ukoliko postoji dokument/prilog za clanak. Dokument (jedan ili vise njih) sacuvati u folder, pa onda isti folder nakon kompresije u .zip ili .rar formatu upload-ovati.",
+      fields: [
+        {
+          name: "attachmentName",
+          title: "Naziv priloga",
+          type: "string",
+          description:
+            "Kratak naziv priloga, ono sto ce biti vidljivo korisniku (verovatno sam naziv foldera, ali potpuno je proizvoljno sta ce pisati). Ovo polje je obavezno",
+        },
+      ],
     },
   ],
 };
