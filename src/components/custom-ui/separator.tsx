@@ -8,7 +8,7 @@ const Separator = ({ className }: SeparatorProps) => {
   return (
     <div
       className={cn(
-        "h-1 bg-gradient-to-r from-green-600 to-violet-500",
+        "h-1 bg-gradient-to-r from-green-primary to-purple-primary",
         className,
       )}
     />
