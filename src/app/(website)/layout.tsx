@@ -1,10 +1,18 @@
-import { Inter } from "next/font/google";
+import { Inter, Oswald } from "next/font/google";
 import type { Metadata } from "next";
 import { ReactNode } from "react";
 import "../globals.css";
 import Footer from "@/components/custom-ui/footer";
+import Header from "@/components/custom-ui/header";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+});
+const oswald = Oswald({
+  subsets: ["latin"],
+  variable: "--font-oswald",
+});
 
 export const metadata: Metadata = {
   title: "Mobilnost.ba",
@@ -21,9 +29,12 @@ type RootLayoutProps = Readonly<{
 const RootLayout = ({ children }: RootLayoutProps) => {
   return (
     <html lang="en">
-      <body className={`${inter.className} mx-auto flex min-h-screen flex-col`}>
-        {children}
-        <Footer />
+      <body className={`${oswald.variable} ${inter.variable} bg-gray-100`}>
+        <div className="flex min-h-screen flex-col">
+          <Header />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </div>
       </body>
     </html>
   );
