@@ -15,7 +15,6 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { CATEGORY_QUERYResult } from "@/sanity/types";
-import SocialMediaLinks from "../social-media-links";
 
 type SideBarProps = {
   allCategories: CATEGORY_QUERYResult;
