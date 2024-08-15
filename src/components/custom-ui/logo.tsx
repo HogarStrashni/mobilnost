@@ -1,10 +1,11 @@
-import { Triangle } from "lucide-react";
+import Image from "next/image";
+import logoImg from "/src/assets/logo_final.png";
 
 const Logo = () => {
   return (
-    <div className="hidden bg-gradient-to-br from-green-500 to-violet-600 bg-clip-text text-2xl font-extrabold italic text-transparent min-[280px]:flex sm:text-3xl md:text-4xl lg:text-5xl">
-      mobilnost.ba
-      <Triangle className="ml-1 size-3 stroke-violet-600 stroke-1 text-black sm:size-4 md:ml-2 md:size-5 lg:size-6" />
+    <div className="flex items-end gap-2">
+      <Image src={logoImg} alt="logo" className="block w-16 rounded" />
+      <span className="text-xl italic max-[330px]:hidden">mobilnost.ba</span>
     </div>
   );
 };
