@@ -1,3 +1,5 @@
+import Carousel from "@/components/custom-ui/articles/carousel";
+
 import { client } from "@/sanity/client";
 import { ACTUAL_ARTICLES_QUERY, NEWEST_ARTICLES_QUERY } from "@/sanity/queries";
 import {
@@ -19,12 +21,7 @@ const Home = async () => {
 
   return (
     <div className="mx-auto my-6 min-h-96 max-w-screen-2xl px-2 sm:my-8 sm:px-5 lg:my-16 lg:px-12">
-      <section className="min-h-40 border">
-        <pre>{JSON.stringify(actualArticles, null, 4)}</pre>
-      </section>
-      <section className="min-h-40 border">
-        <pre>{JSON.stringify(newestArticles, null, 4)}</pre>
-      </section>
+      <Carousel articles={actualArticles} />
     </div>
   );
 };
