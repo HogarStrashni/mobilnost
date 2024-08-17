@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils/tailwind";
 
 import CarouselArticles from "@/components/custom-ui/articles/actual-articles/carousel-articles";
 import NonCarouselArticles from "@/components/custom-ui/articles/actual-articles//non-carousel-articles";
+import CategorySectionTitle from "@/components/custom-ui/articles/category-section/category-section-title";
 
 type ActualArticlesProps = {
   articles: ACTUAL_ARTICLES_QUERYResult;
@@ -16,9 +17,16 @@ const ActualArticles = ({ articles, className }: ActualArticlesProps) => {
   const restArticles = articles.slice(-4);
 
   return (
-    <section className={cn("grid min-h-40 grid-cols-2 gap-4", className)}>
-      <CarouselArticles data={carouselArticles} />
-      <NonCarouselArticles data={restArticles} />
+    <section>
+      <CategorySectionTitle category="aktuelno" />
+
+      <div className={cn("grid min-h-40 grid-cols-5 gap-6", className)}>
+        <CarouselArticles
+          data={carouselArticles}
+          className="col-span-3 border-r pr-6"
+        />
+        <NonCarouselArticles data={restArticles} className="col-span-2" />
+      </div>
     </section>
   );
 };

@@ -1,9 +1,9 @@
 import { client } from "@/sanity/client";
 import { ARTICLES_BY_CATEGORY_QUERY } from "@/sanity/queries";
 import { ARTICLES_BY_CATEGORY_QUERYResult } from "@/sanity/types";
-import { FolderOpenDot } from "lucide-react";
 
 import ArticleCard from "@/components/custom-ui/articles/article-card";
+import CategorySectionTitle from "@/components/custom-ui/articles/category-section/category-section-title";
 
 type CategoryPageProps = {
   params: {
@@ -21,12 +21,7 @@ const CategoryPage = async ({ params: { category } }: CategoryPageProps) => {
 
   return (
     <div>
-      <div className="mb-6 flex max-w-fit items-center gap-2 font-bold uppercase">
-        <FolderOpenDot className="text-green-primary" />
-        <span className="font-oswald text-2xl text-purple-primary">
-          {title}
-        </span>
-      </div>
+      <CategorySectionTitle category={title} />
 
       <div className="grid gap-x-4 gap-y-8 sm:grid-cols-2">
         {articles.map((article) => {

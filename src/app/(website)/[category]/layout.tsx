@@ -4,8 +4,7 @@ import { client } from "@/sanity/client";
 import { ACTUAL_ARTICLES_QUERY } from "@/sanity/queries";
 import { ACTUAL_ARTICLES_QUERYResult } from "@/sanity/types";
 import ArticleCard from "@/components/custom-ui/articles/article-card";
-
-import { FolderOpenDot } from "lucide-react";
+import CategorySectionTitle from "@/components/custom-ui/articles/category-section/category-section-title";
 
 type RootLayoutProps = Readonly<{
   children: ReactNode;
@@ -33,12 +32,8 @@ const CategoryLayout = async ({
       </section>
 
       <section className="flex-[2]">
-        <div className="mb-6 flex max-w-fit items-center gap-2 font-bold uppercase">
-          <FolderOpenDot className="text-green-primary" />
-          <span className="font-oswald text-2xl text-purple-primary">
-            aktuelno
-          </span>
-        </div>
+        <CategorySectionTitle category="aktuelno" />
+
         <div className="grid grid-cols-2 items-start gap-x-4 gap-y-8">
           {articles.map((article) => (
             <ArticleCard key={article.slug} article={article} />

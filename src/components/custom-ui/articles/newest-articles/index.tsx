@@ -1,5 +1,5 @@
 import { NEWEST_ARTICLES_QUERYResult } from "@/sanity/types";
-import CategorySection from "../category-section";
+import CategorySection from "@/components/custom-ui/articles/category-section";
 
 type NewestArticlesProps = {
   articles: NEWEST_ARTICLES_QUERYResult;
