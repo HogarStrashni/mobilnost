@@ -3,13 +3,13 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { ACTUAL_ARTICLES_QUERYResult } from "@/sanity/types";
 
+import Autoplay from "embla-carousel-autoplay";
 import {
   Carousel,
   CarouselApi,
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
-import Autoplay from "embla-carousel-autoplay";
 
 import ArticleCard from "@/components/custom-ui/articles/article-card";
 import CarouselNavigation from "@/components/custom-ui/articles/actual-articles/carousel-navigation";

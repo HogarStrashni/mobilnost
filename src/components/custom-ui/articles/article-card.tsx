@@ -1,8 +1,8 @@
+import Link from "next/link";
+import Image from "next/image";
 import { urlFor } from "@/sanity/image";
 import { ACTUAL_ARTICLES_QUERYResult } from "@/sanity/types";
 import { ClockArrowUp, UserRoundPen } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
 
 type ArticleCardProps = {
   article: ACTUAL_ARTICLES_QUERYResult[0];
