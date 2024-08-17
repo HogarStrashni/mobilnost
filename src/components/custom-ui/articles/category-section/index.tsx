@@ -1,9 +1,8 @@
-import Link from "next/link";
 import { cn } from "@/lib/utils/tailwind";
 import { NEWEST_ARTICLES_QUERYResult } from "@/sanity/types";
 
 import ArticleCard from "@/components/custom-ui/articles/article-card";
-import { FolderOpenDot } from "lucide-react";
+import CategorySectionTitle from "@/components/custom-ui/articles/category-section/category-section-title";
 
 type CategorySectionProps = {
   category: NEWEST_ARTICLES_QUERYResult[0]["category"];
@@ -28,15 +27,10 @@ const CategorySection = ({
 
   return (
     <div className={cn("mt-20", className)}>
-      <Link
+      <CategorySectionTitle
+        category={category ?? ""}
         href={`/${slug}` ?? "/"}
-        className="mb-6 flex max-w-fit items-center gap-2 font-bold uppercase"
-      >
-        <FolderOpenDot className="text-green-primary" />
-        <span className="font-oswald text-2xl text-purple-primary">
-          {category}
-        </span>
-      </Link>
+      />
 
       <div className="grid gap-x-4 gap-y-8 sm:grid-cols-2 lg:grid-cols-4">
         {articlesTrasformed.map((article) => (
