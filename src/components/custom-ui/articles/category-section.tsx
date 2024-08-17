@@ -40,9 +40,7 @@ const CategorySection = ({
 
       <div className="grid gap-x-4 gap-y-8 sm:grid-cols-2 lg:grid-cols-4">
         {articlesTrasformed.map((article) => (
-          <Link key={article.slug} href={`/${slug}/${article.slug}`}>
-            <ArticleCard article={article} />
-          </Link>
+          <ArticleCard key={article.slug} article={article} />
         ))}
       </div>
     </div>
