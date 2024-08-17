@@ -1,4 +1,4 @@
-import { Circle, CircleCheckBig, CircleStop } from "lucide-react";
+import { Circle, CircleStop } from "lucide-react";
 
 type CarouselNavigationProps = {
   current: number;
