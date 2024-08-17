@@ -1,9 +1,9 @@
-import ArticlePreview from "@/components/custom-ui/article-preview";
-import Separator from "@/components/custom-ui/separator";
 import { client } from "@/sanity/client";
 import { ARTICLES_BY_CATEGORY_QUERY } from "@/sanity/queries";
 import { ARTICLES_BY_CATEGORY_QUERYResult } from "@/sanity/types";
-import Link from "next/link";
+import { FolderOpenDot } from "lucide-react";
+
+import ArticleCard from "@/components/custom-ui/articles/article-card";
 
 type CategoryPageProps = {
   params: {
@@ -12,30 +12,25 @@ type CategoryPageProps = {
 };
 
 const CategoryPage = async ({ params: { category } }: CategoryPageProps) => {
-  const data = await client.fetch<ARTICLES_BY_CATEGORY_QUERYResult>(
+  const articles = await client.fetch<ARTICLES_BY_CATEGORY_QUERYResult>(
     ARTICLES_BY_CATEGORY_QUERY,
     { category },
   );
 
-  const articles = data.map((article) => ({
-    categorySlug: category,
-    ...article,
-  }));
-
-  const title = category.replace("-", " ");
+  const title = articles[0]?.category?.title || category.replace("-", " ");
 
   return (
-    <div className="h-full lg:border-r lg:pr-4">
-      <h2 className="text-lg font-bold uppercase">{title}</h2>
-      <Separator className="mb-4" />
+    <div>
+      <div className="mb-6 flex max-w-fit items-center gap-2 font-bold uppercase">
+        <FolderOpenDot className="text-green-primary" />
+        <span className="font-oswald text-2xl text-purple-primary">
+          {title}
+        </span>
+      </div>
+
       <div className="grid gap-x-4 gap-y-8 sm:grid-cols-2">
         {articles.map((article) => {
-          const { categorySlug, slug: articleSlug } = article;
-          return (
-            <Link key={articleSlug} href={`/${categorySlug}/${articleSlug}`}>
-              <ArticlePreview article={article} />
-            </Link>
-          );
+          return <ArticleCard key={article.slug} article={article} />;
         })}
       </div>
     </div>
