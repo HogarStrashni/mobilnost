@@ -9,11 +9,21 @@ import { FolderOpenDot } from "lucide-react";
 
 type RootLayoutProps = Readonly<{
   children: ReactNode;
+  params: {
+    category: string;
+  };
 }>;
 
-const CategoryLayout = async ({ children }: RootLayoutProps) => {
+const CategoryLayout = async ({
+  children,
+  params: { category },
+}: RootLayoutProps) => {
   const actualArticles = await client.fetch<ACTUAL_ARTICLES_QUERYResult>(
     ACTUAL_ARTICLES_QUERY,
+  );
+
+  const articles = actualArticles.filter(
+    (article) => article.category?.slug !== category,
   );
 
   return (
@@ -30,7 +40,7 @@ const CategoryLayout = async ({ children }: RootLayoutProps) => {
           </span>
         </div>
         <div className="grid grid-cols-2 items-start gap-x-4 gap-y-8">
-          {actualArticles.map((article) => (
+          {articles.map((article) => (
             <ArticleCard key={article.slug} article={article} />
           ))}
         </div>
