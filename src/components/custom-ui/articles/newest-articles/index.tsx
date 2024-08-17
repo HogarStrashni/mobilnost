@@ -7,7 +7,12 @@ type NewestArticlesProps = {
 
 const NewestArticles = ({ articles }: NewestArticlesProps) => {
   return articles.map(({ category, slug, articles }) => (
-    <CategorySection category={category} slug={slug} articles={articles} />
+    <CategorySection
+      key={slug}
+      category={category}
+      slug={slug}
+      articles={articles}
+    />
   ));
 };
 

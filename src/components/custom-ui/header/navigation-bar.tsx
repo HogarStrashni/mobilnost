@@ -1,8 +1,8 @@
 "use client";
 
 import { CATEGORY_QUERYResult } from "@/sanity/types";
-import NavigationLink from "./navigation-link";
-import Separator from "../separator";
+import NavigationLink from "@/components/custom-ui/header/navigation-link";
+import Separator from "@/components/custom-ui/separator";
 
 type NavigationBarProps = {
   allCategories: CATEGORY_QUERYResult;
