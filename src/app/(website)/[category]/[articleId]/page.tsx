@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { components } from "@/components/custom-ui/article-component/image-component";
+import { components } from "@/components/custom-ui/image-component";
 import { client } from "@/sanity/client";
 import { ARTICLE_QUERY } from "@/sanity/queries";
 import { ARTICLE_QUERYResult } from "@/sanity/types";
