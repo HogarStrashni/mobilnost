@@ -1,11 +1,12 @@
-import Carousel from "@/components/custom-ui/articles/carousel";
-
 import { client } from "@/sanity/client";
 import { ACTUAL_ARTICLES_QUERY, NEWEST_ARTICLES_QUERY } from "@/sanity/queries";
 import {
   ACTUAL_ARTICLES_QUERYResult,
   NEWEST_ARTICLES_QUERYResult,
 } from "@/sanity/types";
+
+import ActualArticles from "@/components/custom-ui/articles/actual-articles";
+import NewestArticles from "@/components/custom-ui/articles/newest-articles";
 
 const Home = async () => {
   const getActualArticles = async () =>
@@ -20,8 +21,9 @@ const Home = async () => {
   ]);
 
   return (
-    <div className="mx-auto my-6 min-h-96 max-w-screen-2xl px-2 sm:my-8 sm:px-5 lg:my-16 lg:px-12">
-      <Carousel articles={actualArticles} />
+    <div className="mx-auto my-6 max-w-screen-2xl px-2 sm:my-8 sm:px-5 lg:my-16 lg:px-12">
+      <ActualArticles articles={actualArticles} />
+      <NewestArticles articles={newestArticles} />
     </div>
   );
 };

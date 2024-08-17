@@ -2,6 +2,7 @@ import { Inter, Oswald } from "next/font/google";
 import type { Metadata } from "next";
 import { ReactNode } from "react";
 import "../globals.css";
+
 import Footer from "@/components/custom-ui/footer";
 import Header from "@/components/custom-ui/header";
 
