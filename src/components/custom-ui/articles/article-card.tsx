@@ -2,15 +2,18 @@ import { urlFor } from "@/sanity/image";
 import { ACTUAL_ARTICLES_QUERYResult } from "@/sanity/types";
 import { ClockArrowUp, UserRoundPen } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 type ArticleCardProps = {
   article: ACTUAL_ARTICLES_QUERYResult[0];
 };
 
 const ArticleCard = ({ article }: ArticleCardProps) => {
-  const { title, coverImage, author, excerpt, published } = article;
+  const { title, coverImage, author, excerpt, published, category, slug } =
+    article;
+
   return (
-    <div className="flex flex-col gap-2">
+    <Link href={`${category?.slug}/${slug}`} className="flex flex-col gap-2">
       {coverImage && (
         <Image
           src={urlFor(coverImage).url()}
@@ -36,7 +39,7 @@ const ArticleCard = ({ article }: ArticleCardProps) => {
           <p className="text-xs">{new Date(published).toLocaleDateString()}</p>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

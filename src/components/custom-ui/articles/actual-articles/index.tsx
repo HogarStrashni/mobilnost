@@ -12,8 +12,8 @@ type ActualArticlesProps = {
 };
 
 const ActualArticles = ({ articles, className }: ActualArticlesProps) => {
-  const carouselArticles = articles.slice(0, articles.length - 2);
-  const restArticles = articles.slice(-2);
+  const carouselArticles = articles.slice(0, articles.length - 4);
+  const restArticles = articles.slice(-4);
 
   return (
     <section className={cn("grid min-h-40 grid-cols-2 gap-4", className)}>
