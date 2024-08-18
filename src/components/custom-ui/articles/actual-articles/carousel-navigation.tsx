@@ -1,4 +1,4 @@
-import { Circle, CircleStop } from "lucide-react";
+import { Circle, CircleCheck } from "lucide-react";
 
 type CarouselNavigationProps = {
   current: number;
@@ -23,7 +23,7 @@ const CarouselNavigation = ({
           disabled={item === current}
         >
           {item === current ? (
-            <CircleStop className="size-4 stroke-[3px] text-purple-primary" />
+            <CircleCheck className="size-4 stroke-[3px] text-purple-primary" />
           ) : (
             <Circle className="size-3 stroke-[3px] text-green-primary" />
           )}
