@@ -20,7 +20,7 @@ const ActualArticles = ({ articles, className }: ActualArticlesProps) => {
     <section>
       <CategorySectionTitle category="aktuelno" />
 
-      <div className={cn("grid min-h-40 grid-cols-5 gap-6", className)}>
+      <div className={cn("grid grid-cols-5 gap-6", className)}>
         <CarouselArticles
           data={carouselArticles}
           className="col-span-3 border-r pr-6"
