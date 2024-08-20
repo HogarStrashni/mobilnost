@@ -6,9 +6,10 @@ import { ClockArrowUp, UserRoundPen } from "lucide-react";
 
 type ArticleCardProps = {
   article: ACTUAL_ARTICLES_QUERYResult[0];
+  largeSize?: boolean;
 };
 
-const ArticleCard = ({ article }: ArticleCardProps) => {
+const ArticleCard = ({ article, largeSize }: ArticleCardProps) => {
   const { title, coverImage, author, excerpt, published, category, slug } =
     article;
 
@@ -18,9 +19,9 @@ const ArticleCard = ({ article }: ArticleCardProps) => {
         <Image
           src={urlFor(coverImage).url()}
           alt={coverImage.alt ?? ""}
-          width={640}
-          height={400}
-          className="aspect-[1.6] w-full rounded object-cover"
+          width={largeSize ? 1024 : 640}
+          height={largeSize ? 640 : 400}
+          className="aspect-[1.6] w-full object-cover"
           priority
         />
       )}
