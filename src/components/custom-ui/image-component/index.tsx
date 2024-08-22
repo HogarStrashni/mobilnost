@@ -1,4 +1,5 @@
 import { urlFor } from "@/sanity/image";
+import Image from "next/image";
 
 type SampleImageComponent = {
   value: {
@@ -13,9 +14,11 @@ type SampleImageComponent = {
 // Barebones lazy-loaded image component
 const SampleImageComponent = ({ value, isInline }: SampleImageComponent) => {
   return (
-    <img
+    <Image
       src={urlFor(value).image(value).fit("max").auto("format").url()}
       alt={value.alt || " "}
+      width={1280}
+      height={800}
       loading="lazy"
       style={{
         // Display alongside text if image appears inside a block text span
