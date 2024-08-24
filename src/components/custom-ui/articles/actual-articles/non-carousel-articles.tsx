@@ -11,7 +11,7 @@ const NonCarouselArticles = ({ data, className }: NonCarouselArticlesProps) => {
   return (
     <div className={className}>
       {data.map((article) => (
-        <ArticleCard article={article} key={article.slug} hideExcerpt />
+        <ArticleCard article={article} key={article.slug} actualArticle />
       ))}
     </div>
   );
