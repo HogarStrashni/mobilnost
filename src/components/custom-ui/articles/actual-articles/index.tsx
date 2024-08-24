@@ -13,19 +13,19 @@ type ActualArticlesProps = {
 };
 
 const ActualArticles = ({ articles, className }: ActualArticlesProps) => {
-  const carouselArticles = articles.slice(0, articles.length - 4);
-  const restArticles = articles.slice(-4);
+  const carouselArticles = articles.slice(0, articles.length - 2);
+  const restArticles = articles.slice(-2);
 
   return (
     <section>
       <CategorySectionTitle category="aktuelno" />
 
-      <div className={cn("grid grid-cols-5 gap-6", className)}>
+      <div className={cn("grid grid-cols-3 gap-6", className)}>
         <CarouselArticles
           data={carouselArticles}
-          className="col-span-3 border-r pr-6"
+          className="col-span-2 rounded bg-white"
         />
-        <NonCarouselArticles data={restArticles} className="col-span-2" />
+        <NonCarouselArticles data={restArticles} className="grid gap-6" />
       </div>
     </section>
   );

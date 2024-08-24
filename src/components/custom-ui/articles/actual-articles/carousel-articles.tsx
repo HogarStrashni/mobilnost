@@ -59,7 +59,7 @@ const CarouselArticles = ({ data, className }: CarouselArticlesProps) => {
           </CarouselItem>
         ))}
       </CarouselContent>
-      <div className="mt-8 flex items-center justify-center">
+      <div className="my-6 flex items-center justify-center">
         <CarouselNavigation
           current={current}
           total={data.length}
