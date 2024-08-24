@@ -59,6 +59,9 @@ const config = {
         "green-primary": "#008080",
         "purple-primary": "#800080",
       },
+      screens: {
+        "2xl": "1400px",
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
