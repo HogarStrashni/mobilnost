@@ -6,7 +6,7 @@ type SampleImageComponent = {
     asset: {
       _ref: string;
     };
-    alt: string;
+    imageAlt: string;
   };
   isInline: boolean;
 };
@@ -14,17 +14,21 @@ type SampleImageComponent = {
 // Barebones lazy-loaded image component
 const SampleImageComponent = ({ value, isInline }: SampleImageComponent) => {
   return (
-    <Image
-      src={urlFor(value).image(value).fit("max").auto("format").url()}
-      alt={value.alt || " "}
-      width={1280}
-      height={800}
-      loading="lazy"
-      style={{
-        // Display alongside text if image appears inside a block text span
-        display: isInline ? "inline-block" : "block",
-      }}
-    />
+    <div className="flex flex-col">
+      <Image
+        src={urlFor(value).image(value).fit("max").auto("format").url()}
+        alt={value.imageAlt || ""}
+        width={1280}
+        height={800}
+        loading="lazy"
+        className="rounded"
+        style={{
+          // Display alongside text if image appears inside a block text span
+          display: isInline ? "inline-block" : "block",
+        }}
+      />
+      <p className="-mt-6 text-xs text-gray-500">{value.imageAlt}</p>
+    </div>
   );
 };
 
