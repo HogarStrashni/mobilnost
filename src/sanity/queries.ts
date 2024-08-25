@@ -22,7 +22,7 @@ export const NEWEST_ARTICLES_QUERY = groq`
   *[_type == "category"] | order(_createdAt asc){
   "category": title,
   "slug": slug.current,
-  "articles": *[_type == "article" && actual == false && references(^._id)] | order(_createdAt desc){
+  "articles": *[_type == "article" && references(^._id)] | order(_createdAt desc){
     title,
     excerpt,
     "slug": slug.current,
