@@ -19,8 +19,9 @@ const config = {
     },
     extend: {
       fontFamily: {
-        inter: ["var(--font-inter)"],
         oswald: ["var(--font-oswald)"],
+        lora: ["var(--font-lora)"],
+        roboto: ["var(--font-roboto)"],
       },
       colors: {
         border: "hsl(var(--border))",

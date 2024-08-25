@@ -1,4 +1,4 @@
-import { Inter, Oswald } from "next/font/google";
+import { Oswald, Lora, Roboto } from "next/font/google";
 import type { Metadata } from "next";
 import { ReactNode } from "react";
 import "../globals.css";
@@ -6,13 +6,19 @@ import "../globals.css";
 import Footer from "@/components/custom-ui/footer";
 import Header from "@/components/custom-ui/header";
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-});
 const oswald = Oswald({
   subsets: ["latin"],
   variable: "--font-oswald",
+});
+const inter = Lora({
+  weight: ["400", "700"],
+  subsets: ["latin"],
+  variable: "--font-lora",
+});
+const roboto = Roboto({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-roboto",
 });
 
 export const metadata: Metadata = {
@@ -30,7 +36,9 @@ type RootLayoutProps = Readonly<{
 const RootLayout = ({ children }: RootLayoutProps) => {
   return (
     <html lang="en">
-      <body className={`${oswald.variable} ${inter.variable} bg-gray-100`}>
+      <body
+        className={`${oswald.variable} ${inter.variable} ${roboto.variable} bg-gray-100`}
+      >
         <div className="flex min-h-screen flex-col">
           <Header />
           <main className="flex-1">{children}</main>
