@@ -21,22 +21,23 @@ const CategoryLayout = async ({
     ACTUAL_ARTICLES_QUERY,
   );
 
-  const articles = actualArticles.filter(
-    (article) => article.category?.slug !== category,
-  );
-
   return (
-    <div className="mx-auto my-6 flex max-w-screen-2xl gap-6 sm:my-8 sm:px-5 lg:my-16 lg:px-12">
-      <section className="flex-[3]">
-        <div className="lg:border-r lg:pr-6">{children}</div>
+    <div className="mx-auto my-6 grid max-w-screen-2xl grid-cols-3 gap-4 sm:my-8 sm:px-5 lg:my-16 lg:px-12">
+      <section className="col-span-2">
+        <div>{children}</div>
       </section>
 
-      <section className="flex-[2]">
+      <section className="pl-4">
         <CategorySectionTitle category="aktuelno" />
 
-        <div className="grid grid-cols-2 items-start gap-x-4 gap-y-8">
-          {articles.map((article) => (
-            <ArticleCard key={article.slug} article={article} />
+        <div className="grid items-start gap-4">
+          {actualArticles.map((article) => (
+            <ArticleCard
+              key={article.slug}
+              article={article}
+              actualArticle
+              showCoverImage={false}
+            />
           ))}
         </div>
       </section>
