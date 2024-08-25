@@ -61,7 +61,7 @@ const config = {
         "purple-primary": "#800080",
       },
       screens: {
-        "2xl": "1400px",
+        "2xl": "1320px",
       },
       borderRadius: {
         lg: "var(--radius)",
