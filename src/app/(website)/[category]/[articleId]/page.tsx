@@ -1,10 +1,15 @@
-import Link from "next/link";
-import { components } from "@/components/custom-ui/image-component";
 import { client } from "@/sanity/client";
 import { ARTICLE_QUERY } from "@/sanity/queries";
 import { ARTICLE_QUERYResult } from "@/sanity/types";
+import { components } from "@/components/custom-ui/image-component";
 import { PortableText } from "@portabletext/react";
-import { ClockArrowUp, FileDown, Rss, UserRoundPen } from "lucide-react";
+import ArticleAuthor from "@/components/custom-ui/articles/article-author";
+import ArticleDate from "@/components/custom-ui/articles/article-date";
+import ArticleCategory from "@/components/custom-ui/articles/article-category";
+import ArticleTag from "@/components/custom-ui/articles/article-tag";
+import ArticleShareButton from "@/components/custom-ui/articles/article-share-button";
+
+import ArticleSingleFooter from "@/components/custom-ui/articles/article-single-footer";
 
 type ArticlePageProps = {
   params: {
@@ -19,6 +24,7 @@ const ArticlePage = async ({ params: { articleId } }: ArticlePageProps) => {
 
   const {
     title,
+    category,
     author,
     published,
     tags,
@@ -30,50 +36,41 @@ const ArticlePage = async ({ params: { articleId } }: ArticlePageProps) => {
   } = data ?? {};
 
   return (
-    <div className="prose w-full max-w-none">
-      <div className="mb-6 flex gap-4">
-        {tags?.map(({ title }) => (
-          <span key={title} className="rounded border bg-orange-500/50 px-3">
-            {title}
-          </span>
-        ))}
+    <div className="prose prose-gray w-full max-w-none rounded bg-white p-6 pb-12 font-roboto prose-headings:font-lora prose-a:underline-offset-4">
+      <div className="relative flex items-center justify-between">
+        <div className="flex gap-2">
+          {tags?.map(({ title }) => (
+            <ArticleTag key={title} title={title ?? ""} />
+          ))}
+        </div>
+        <ArticleShareButton className="right-0" />
       </div>
-      <h1>{title}</h1>
 
-      <div className="-mt-8 flex gap-16">
-        <div className="flex items-center gap-2">
-          <UserRoundPen className="size-4" />
-          <p className="text-sm">{author}</p>
-        </div>
-        <div className="flex items-center gap-2">
-          <ClockArrowUp className="size-3" />
-          <p className="text-xs">
-            {published && new Date(published).toLocaleDateString()}
-          </p>
+      <h1 className="mt-8">{title}</h1>
+
+      <div className="-mt-4">
+        <ArticleCategory title={category?.title ?? ""} />
+        <div className="mt-2 flex h-3.5 items-center">
+          <ArticleAuthor author={author ?? ""} />
+          <span className="mx-2.5 h-full border border-gray-400"></span>
+          <ArticleDate date={published ?? ""} />
         </div>
       </div>
-      {attachmentName && attacmentUrl && (
-        <Link
-          href={attacmentUrl}
-          className="mt-8 flex max-w-fit items-center gap-2 rounded border px-4 py-2"
-        >
-          <FileDown className="size-4" />
-          <span>{attachmentName}</span>
-        </Link>
-      )}
-      {content && <PortableText value={content} components={components} />}
-      {source && (
-        <div className="mt-12 flex items-center justify-end">
-          <Rss className="size-4" />
-          {sourceUrl ? (
-            <Link href={sourceUrl} target="_blank" className="ml-2">
-              {source}
-            </Link>
-          ) : (
-            <span>{source}</span>
-          )}
-        </div>
-      )}
+
+      <div className="pt-6">
+        {content && <PortableText value={content} components={components} />}
+      </div>
+
+      <ArticleSingleFooter
+        attachmentName={attachmentName ?? ""}
+        attacmentUrl={attacmentUrl ?? ""}
+        source={source ?? ""}
+        sourceUrl={sourceUrl ?? ""}
+      />
+
+      <div className="relative mt-16">
+        <ArticleShareButton className="right-0" />
+      </div>
     </div>
   );
 };
