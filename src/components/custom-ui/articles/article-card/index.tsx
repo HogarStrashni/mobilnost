@@ -3,46 +3,48 @@ import Image from "next/image";
 import { cn } from "@/lib/utils/tailwind";
 import { urlFor } from "@/sanity/image";
 import { ACTUAL_ARTICLES_QUERYResult } from "@/sanity/types";
-import ArticleCategory from "./article-category";
-import ArticleDate from "./article-date";
-import ArticleAuthor from "./article-author";
+import ArticleCategory from "@/components/custom-ui/articles/article-category";
+import ArticleDate from "@/components/custom-ui/articles/article-date";
+import ArticleAuthor from "@/components/custom-ui/articles/article-author";
 import ArticleFooter from "./article-footer";
 
 type ArticleCardProps = {
   article: ACTUAL_ARTICLES_QUERYResult[0];
   largeSize?: boolean;
   actualArticle?: boolean;
+  showCoverImage?: boolean;
 };
 
 const ArticleCard = ({
   article,
   largeSize,
   actualArticle = false,
+  showCoverImage = true,
 }: ArticleCardProps) => {
   const { title, coverImage, author, excerpt, published, category, slug } =
     article;
 
   return (
     <Link
-      href={`${category?.slug}/${slug}`}
+      href={`/${category?.slug}/${slug}`}
       className={cn(
         "flex flex-col justify-between gap-4 rounded bg-white p-4",
         !largeSize && "shadow-sm",
       )}
     >
       <div className="flex flex-col gap-1">
-        {coverImage && (
+        {coverImage && showCoverImage && (
           <Image
             src={urlFor(coverImage).url()}
             alt={coverImage.alt ?? ""}
             width={largeSize ? 1024 : 640}
             height={largeSize ? 640 : 400}
-            className="aspect-[1.6] w-full rounded object-cover"
+            className="mb-2 aspect-[1.6] w-full rounded object-cover"
             priority
           />
         )}
 
-        <div className="my-1 flex h-3.5 items-center">
+        <div className="flex h-3.5 items-center">
           {actualArticle || largeSize ? (
             <ArticleCategory title={category?.title ?? ""} />
           ) : (
@@ -52,10 +54,26 @@ const ArticleCard = ({
           <ArticleDate date={published} />
         </div>
 
-        <div className="space-y-2">
-          <h2 className="font-bold">{title}</h2>
+        <div className="mt-4">
+          <h2
+            className={cn(
+              "font-lora text-xl font-bold leading-6 text-gray-700",
+              largeSize ? "mb-4 text-4xl" : "mb-2",
+            )}
+          >
+            {title}
+          </h2>
 
-          {!actualArticle && <p className="line-clamp-3 text-sm">{excerpt}</p>}
+          {!actualArticle && (
+            <p
+              className={cn(
+                "font-roboto line-clamp-3 text-sm text-gray-600",
+                largeSize ? "text-base" : "text-sm",
+              )}
+            >
+              {excerpt}
+            </p>
+          )}
         </div>
       </div>
 
