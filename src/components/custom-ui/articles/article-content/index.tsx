@@ -17,4 +17,20 @@ export const components: Partial<PortableTextReactComponents> = {
       </h3>
     ),
   },
+  marks: {
+    link: ({ value, children }) => {
+      const target = (value?.href || "").startsWith("http")
+        ? "_blank"
+        : undefined;
+      return (
+        <a
+          href={value?.href}
+          target={target}
+          rel={target === "_blank" ? "noindex nofollow" : undefined}
+        >
+          {children}
+        </a>
+      );
+    },
+  },
 };
