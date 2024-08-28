@@ -13,17 +13,17 @@ const CategorySectionTitle = ({
   return href ? (
     <Link
       href={href}
-      className="mb-6 flex max-w-fit items-center gap-2 font-bold uppercase"
+      className="mb-4 flex max-w-fit items-center gap-2 font-bold uppercase sm:mb-6"
     >
-      <FolderOpenDot className="text-green-primary" />
-      <span className="font-oswald text-2xl text-purple-primary">
+      <FolderOpenDot className="size-4 text-green-primary sm:size-6" />
+      <span className="font-oswald text-lg text-purple-primary sm:text-2xl">
         {category}
       </span>
     </Link>
   ) : (
-    <div className="mb-6 flex max-w-fit items-center gap-2 font-bold uppercase">
-      <FolderOpenDot className="text-green-primary" />
-      <span className="font-oswald text-2xl text-purple-primary">
+    <div className="mb-4 flex max-w-fit items-center gap-2 font-bold uppercase sm:mb-6">
+      <FolderOpenDot className="size-4 text-green-primary sm:size-6" />
+      <span className="font-oswald text-lg text-purple-primary sm:text-2xl">
         {category}
       </span>
     </div>

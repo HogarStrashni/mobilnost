@@ -20,10 +20,10 @@ const ActualArticles = ({ articles, className }: ActualArticlesProps) => {
     <section>
       <CategorySectionTitle category="aktuelno" />
 
-      <div className={cn("grid grid-cols-3 gap-4", className)}>
+      <div className={cn("grid grid-cols-1 gap-4 lg:grid-cols-3", className)}>
         <CarouselArticles
           data={carouselArticles}
-          className="col-span-2 rounded bg-white shadow-sm"
+          className="rounded bg-white shadow-sm lg:col-span-2"
         />
         <NonCarouselArticles data={restArticles} className="grid gap-4" />
       </div>

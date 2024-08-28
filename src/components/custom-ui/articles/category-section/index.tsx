@@ -26,13 +26,13 @@ const CategorySection = ({
   }));
 
   return (
-    <div className={cn("mt-20", className)}>
+    <div className={cn("mt-12 sm:mt-20", className)}>
       <CategorySectionTitle
         category={category ?? ""}
         href={`/${slug}` ?? "/"}
       />
 
-      <div className="grid gap-x-4 gap-y-8 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {articlesTrasformed.map((article) => (
           <ArticleCard key={article.slug} article={article} />
         ))}
