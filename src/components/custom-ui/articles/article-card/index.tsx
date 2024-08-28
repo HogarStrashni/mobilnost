@@ -58,7 +58,7 @@ const ArticleCard = ({
           <h2
             className={cn(
               "font-lora text-lg font-bold leading-6 text-gray-700 sm:text-xl",
-              largeSize ? "mb-4 sm:text-3xl lg:text-4xl" : "mb-2",
+              largeSize ? "mb-4 sm:text-3xl md:text-4xl" : "mb-2",
             )}
           >
             {title}
@@ -68,7 +68,7 @@ const ArticleCard = ({
             <p
               className={cn(
                 "line-clamp-3 font-roboto text-sm text-gray-600",
-                largeSize ? "lg:text-base" : "text-sm",
+                largeSize ? "md:text-base" : "text-sm",
               )}
             >
               {excerpt}
