@@ -27,15 +27,9 @@ const SampleImageComponent = ({ value, isInline }: SampleImageComponent) => {
           display: isInline ? "inline-block" : "block",
         }}
       />
-      <p className="-mt-6 text-xs text-gray-500">{value.imageAlt}</p>
+      <p className="-mt-7 text-sm text-gray-500">{value.imageAlt}</p>
     </div>
   );
 };
 
-export const components = {
-  types: {
-    image: SampleImageComponent,
-    // Any other custom types you have in your content
-    // Examples: mapLocation, contactForm, code, featuredProjects, latestNews, etc.
-  },
-};
+export default SampleImageComponent;
