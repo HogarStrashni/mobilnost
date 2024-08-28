@@ -21,7 +21,7 @@ const Home = async () => {
   ]);
 
   return (
-    <div className="mx-auto my-8 min-w-64 max-w-screen-2xl px-2 lg:my-16 lg:px-12">
+    <div className="mx-auto my-8 min-w-64 max-w-screen-2xl px-2 sm:px-4 md:px-8 lg:my-16 lg:px-12">
       <ActualArticles articles={actualArticles} />
       <NewestArticles articles={newestArticles} />
     </div>

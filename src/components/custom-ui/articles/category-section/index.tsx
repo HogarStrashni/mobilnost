@@ -26,7 +26,7 @@ const CategorySection = ({
   }));
 
   return (
-    <div className={cn("mt-12 sm:mt-20", className)}>
+    <div className={cn("mt-12 sm:mt-16 lg:mt-20", className)}>
       <CategorySectionTitle
         category={category ?? ""}
         href={`/${slug}` ?? "/"}
