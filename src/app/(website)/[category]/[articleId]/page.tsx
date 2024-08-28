@@ -36,14 +36,13 @@ const ArticlePage = async ({ params: { articleId } }: ArticlePageProps) => {
   } = data ?? {};
 
   return (
-    <div className="prose prose-gray w-full max-w-none rounded bg-white p-6 pb-12 font-roboto prose-headings:font-lora prose-a:underline-offset-4">
-      <div className="relative flex items-center justify-between">
-        <div className="flex gap-2">
-          {tags?.map(({ title }) => (
-            <ArticleTag key={title} title={title ?? ""} />
-          ))}
-        </div>
-        <ArticleShareButton className="right-0" />
+    <div className="prose prose-gray w-full max-w-none rounded bg-white p-4 font-roboto prose-headings:font-lora prose-a:underline-offset-4 sm:p-6">
+      <ArticleShareButton className="static mb-6 ml-auto" />
+
+      <div className="flex gap-2">
+        {tags?.map(({ title }) => (
+          <ArticleTag key={title} title={title ?? ""} />
+        ))}
       </div>
 
       <h1 className="mt-8">{title}</h1>
@@ -68,9 +67,7 @@ const ArticlePage = async ({ params: { articleId } }: ArticlePageProps) => {
         sourceUrl={sourceUrl ?? ""}
       />
 
-      <div className="relative mt-16">
-        <ArticleShareButton className="right-0" />
-      </div>
+      <ArticleShareButton className="static ml-auto mt-12" />
     </div>
   );
 };
