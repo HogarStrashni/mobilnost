@@ -1,8 +1,8 @@
 import { client } from "@/sanity/client";
 import { ARTICLE_QUERY } from "@/sanity/queries";
 import { ARTICLE_QUERYResult } from "@/sanity/types";
-import { components } from "@/components/custom-ui/image-component";
 import { PortableText } from "@portabletext/react";
+import { components } from "@/components/custom-ui/article-content";
 import ArticleAuthor from "@/components/custom-ui/articles/article-author";
 import ArticleDate from "@/components/custom-ui/articles/article-date";
 import ArticleCategory from "@/components/custom-ui/articles/article-category";
@@ -36,7 +36,7 @@ const ArticlePage = async ({ params: { articleId } }: ArticlePageProps) => {
   } = data ?? {};
 
   return (
-    <div className="prose prose-gray w-full max-w-none rounded bg-white p-4 font-roboto prose-headings:font-lora prose-a:underline-offset-4 sm:p-6">
+    <div className="w-full max-w-none rounded bg-white p-4 sm:p-6">
       <ArticleShareButton className="static mb-6 ml-auto" />
 
       <div className="flex gap-2">
@@ -45,9 +45,11 @@ const ArticlePage = async ({ params: { articleId } }: ArticlePageProps) => {
         ))}
       </div>
 
-      <h1 className="mt-8">{title}</h1>
+      <h1 className="mt-6 font-lora text-2xl font-bold text-gray-700 sm:text-3xl md:text-4xl">
+        {title}
+      </h1>
 
-      <div className="-mt-4">
+      <div className="mt-4">
         <ArticleCategory title={category?.title ?? ""} />
         <div className="mt-2 flex h-3.5 items-center">
           <ArticleAuthor author={author ?? ""} />
@@ -56,7 +58,7 @@ const ArticlePage = async ({ params: { articleId } }: ArticlePageProps) => {
         </div>
       </div>
 
-      <div className="pt-6">
+      <div className="prose mt-10 max-w-full flex-col font-roboto prose-a:underline-offset-4 prose-ul:-mt-4 prose-li:-mt-2">
         {content && <PortableText value={content} components={components} />}
       </div>
 
