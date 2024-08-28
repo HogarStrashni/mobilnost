@@ -11,7 +11,6 @@ type SampleImageComponent = {
   isInline: boolean;
 };
 
-// Barebones lazy-loaded image component
 const SampleImageComponent = ({ value, isInline }: SampleImageComponent) => {
   return (
     <div className="flex flex-col">

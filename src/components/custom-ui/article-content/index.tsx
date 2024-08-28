@@ -4,8 +4,6 @@ import SampleImageComponent from "@/components/custom-ui/article-content/image-c
 export const components: Partial<PortableTextReactComponents> = {
   types: {
     image: SampleImageComponent,
-    // Any other custom types you have in your content
-    // Examples: mapLocation, contactForm, code, featuredProjects, latestNews, etc.
   },
   block: {
     h2: ({ children }) => (
