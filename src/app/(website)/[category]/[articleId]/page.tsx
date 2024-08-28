@@ -2,14 +2,13 @@ import { client } from "@/sanity/client";
 import { ARTICLE_QUERY } from "@/sanity/queries";
 import { ARTICLE_QUERYResult } from "@/sanity/types";
 import { PortableText } from "@portabletext/react";
-import { components } from "@/components/custom-ui/article-content";
+import { components } from "@/components/custom-ui/articles/article-content";
 import ArticleAuthor from "@/components/custom-ui/articles/article-author";
 import ArticleDate from "@/components/custom-ui/articles/article-date";
 import ArticleCategory from "@/components/custom-ui/articles/article-category";
 import ArticleTag from "@/components/custom-ui/articles/article-tag";
 import ArticleShareButton from "@/components/custom-ui/articles/article-share-button";
-
-import ArticleSingleFooter from "@/components/custom-ui/articles/article-single-footer";
+import ArticleSingleFooter from "@/components/custom-ui/articles/article-content/article-single-footer";
 
 type ArticlePageProps = {
   params: {
@@ -45,7 +44,7 @@ const ArticlePage = async ({ params: { articleId } }: ArticlePageProps) => {
         ))}
       </div>
 
-      <h1 className="mt-6 font-lora text-2xl font-bold text-gray-700 sm:text-3xl md:text-4xl">
+      <h1 className="mt-8 font-lora text-2xl font-bold text-gray-700 sm:text-3xl md:text-4xl">
         {title}
       </h1>
 
