@@ -16,9 +16,9 @@ const ArticleSingleFooter = ({
 }: ArticleSingleFooterProps) => {
   return (
     <div className="text-gray-500">
-      {(attachmentName || source) && <div className="mt-16 w-20 border"></div>}
+      {(attachmentName || source) && <div className="mt-12 w-20 border"></div>}
 
-      <div className="mt-8 flex flex-col gap-4">
+      <div className="mt-6 flex flex-col gap-4">
         {attachmentName && attacmentUrl && (
           <ArticleAttachment
             attachmentName={attachmentName}

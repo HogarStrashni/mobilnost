@@ -11,11 +11,15 @@ const ArticleSource = ({ source, sourceUrl }: ArticleSourceProps) => {
       <span>izvor:</span>
 
       {sourceUrl ? (
-        <Link href={sourceUrl} target="_blank" className="ml-2">
+        <Link
+          href={sourceUrl}
+          target="_blank"
+          className="ml-2 text-base text-gray-700 underline underline-offset-4"
+        >
           {source}
         </Link>
       ) : (
-        <span>{source}</span>
+        <span className="text-base text-gray-700">{source}</span>
       )}
     </div>
   );

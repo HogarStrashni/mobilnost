@@ -15,9 +15,9 @@ const ArticleAttachment = ({
       <span>prilog:</span>
       <Link
         href={attacmentUrl}
-        className="flex max-w-fit items-center gap-1 rounded border px-2 py-0.5 no-underline"
+        className="flex max-w-fit items-center gap-1.5 rounded border px-2 py-0.5 text-base text-gray-700"
       >
-        <FileDown className="size-3" />
+        <FileDown className="size-3.5" />
         <span className="line-clamp-1">{attachmentName}</span>
       </Link>
     </div>
