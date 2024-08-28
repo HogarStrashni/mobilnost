@@ -6,7 +6,7 @@ import { ACTUAL_ARTICLES_QUERYResult } from "@/sanity/types";
 import ArticleCategory from "@/components/custom-ui/articles/article-category";
 import ArticleDate from "@/components/custom-ui/articles/article-date";
 import ArticleAuthor from "@/components/custom-ui/articles/article-author";
-import ArticleFooter from "./article-footer";
+import ArticleCardFooter from "@/components/custom-ui/articles/article-card/article-card-footer";
 
 type ArticleCardProps = {
   article: ACTUAL_ARTICLES_QUERYResult[0];
@@ -77,7 +77,7 @@ const ArticleCard = ({
         </div>
       </div>
 
-      <ArticleFooter />
+      <ArticleCardFooter />
     </Link>
   );
 };

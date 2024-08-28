@@ -1,7 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import ArticleShareButton from "../article-share-button";
 
-const ArticleFooter = () => {
+const ArticleCardFooter = () => {
   return (
     <div className="relative font-oswald text-gray-500">
       <ArticleShareButton />
@@ -13,4 +13,4 @@ const ArticleFooter = () => {
   );
 };
 
-export default ArticleFooter;
+export default ArticleCardFooter;

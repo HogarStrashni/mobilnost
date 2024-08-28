@@ -1,5 +1,5 @@
 import { PortableTextReactComponents } from "next-sanity";
-import SampleImageComponent from "@/components/custom-ui/article-content/image-component";
+import SampleImageComponent from "@/components/custom-ui/articles/article-content/image-component";
 
 export const components: Partial<PortableTextReactComponents> = {
   types: {

@@ -8,7 +8,7 @@ import ArticleDate from "@/components/custom-ui/articles/article-date";
 import ArticleCategory from "@/components/custom-ui/articles/article-category";
 import ArticleTag from "@/components/custom-ui/articles/article-tag";
 import ArticleShareButton from "@/components/custom-ui/articles/article-share-button";
-import ArticleSingleFooter from "@/components/custom-ui/articles/article-content/article-single-footer";
+import ArticleFooter from "@/components/custom-ui/articles/article-content/article-footer";
 
 type ArticlePageProps = {
   params: {
@@ -61,7 +61,7 @@ const ArticlePage = async ({ params: { articleId } }: ArticlePageProps) => {
         {content && <PortableText value={content} components={components} />}
       </div>
 
-      <ArticleSingleFooter
+      <ArticleFooter
         attachmentName={attachmentName ?? ""}
         attacmentUrl={attacmentUrl ?? ""}
         source={source ?? ""}

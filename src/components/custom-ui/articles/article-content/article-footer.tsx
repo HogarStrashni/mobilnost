@@ -1,19 +1,19 @@
 import ArticleAttachment from "./article-attachment";
 import ArticleSource from "./article-source";
 
-type ArticleSingleFooterProps = {
+type ArticleFooterProps = {
   attachmentName: string;
   attacmentUrl: string;
   source: string;
   sourceUrl: string;
 };
 
-const ArticleSingleFooter = ({
+const ArticleFooter = ({
   attachmentName,
   attacmentUrl,
   source,
   sourceUrl,
-}: ArticleSingleFooterProps) => {
+}: ArticleFooterProps) => {
   return (
     <div className="text-gray-500">
       {(attachmentName || source) && <div className="mt-16 w-20 border"></div>}
@@ -34,4 +34,4 @@ const ArticleSingleFooter = ({
   );
 };
 
-export default ArticleSingleFooter;
+export default ArticleFooter;
