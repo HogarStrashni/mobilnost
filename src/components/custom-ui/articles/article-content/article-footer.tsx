@@ -15,21 +15,15 @@ const ArticleFooter = ({
   sourceUrl,
 }: ArticleFooterProps) => {
   return (
-    <div className="text-gray-500">
-      {(attachmentName || source) && <div className="mt-16 w-20 border"></div>}
+    <div className="mt-16 flex flex-col gap-4 text-gray-500">
+      {attachmentName && attacmentUrl && (
+        <ArticleAttachment
+          attachmentName={attachmentName}
+          attacmentUrl={attacmentUrl}
+        />
+      )}
 
-      <div className="mt-6 flex flex-col gap-4">
-        {attachmentName && attacmentUrl && (
-          <ArticleAttachment
-            attachmentName={attachmentName}
-            attacmentUrl={attacmentUrl}
-          />
-        )}
-
-        {source && (
-          <ArticleSource source={source} sourceUrl={sourceUrl ?? ""} />
-        )}
-      </div>
+      {source && <ArticleSource source={source} sourceUrl={sourceUrl ?? ""} />}
     </div>
   );
 };

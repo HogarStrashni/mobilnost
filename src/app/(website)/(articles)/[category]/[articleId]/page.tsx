@@ -57,7 +57,7 @@ const ArticlePage = async ({ params: { articleId } }: ArticlePageProps) => {
         </div>
       </div>
 
-      <div className="prose mt-10 max-w-full flex-col font-roboto prose-a:underline-offset-4 prose-ul:-mt-4 prose-li:-mt-2">
+      <div className="prose mt-10 max-w-full flex-col prose-a:underline-offset-4 prose-ul:-mt-4 prose-li:-mt-2">
         {content && <PortableText value={content} components={components} />}
       </div>
 

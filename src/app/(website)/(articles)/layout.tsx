@@ -16,7 +16,7 @@ const CategoryLayout = async ({ children }: RootLayoutProps) => {
   );
 
   return (
-    <div className="mx-auto my-8 grid min-w-64 max-w-screen-2xl gap-4 px-2 sm:px-4 md:px-8 lg:my-16 lg:grid-cols-3 lg:px-12">
+    <div className="grid gap-4 lg:grid-cols-3">
       <section className="col-span-2">{children}</section>
 
       <section className="hidden pl-4 lg:block">

@@ -67,7 +67,7 @@ const ArticleCard = ({
           {!actualArticle && (
             <p
               className={cn(
-                "line-clamp-3 font-roboto text-sm text-gray-600",
+                "line-clamp-3 text-sm text-gray-600",
                 largeSize ? "md:text-base" : "text-sm",
               )}
             >
