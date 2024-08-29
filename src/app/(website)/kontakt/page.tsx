@@ -1,7 +1,5 @@
-import React from "react";
-
-const Kontakt = () => {
-  return <div>Kontakt</div>;
+const ContactPage = () => {
+  return <div>KONTAKT PLACEHOLDER</div>;
 };
 
-export default Kontakt;
+export default ContactPage;

@@ -1,7 +1,5 @@
-import React from "react";
-
-const Tagovi = () => {
-  return <div>Tagovi</div>;
+const TagsPage = () => {
+  return <div>TAGOVI PLACEHOLDER</div>;
 };
 
-export default Tagovi;
+export default TagsPage;

@@ -1,7 +1,5 @@
-import React from "react";
-
-const UsloviKoristenja = () => {
-  return <div>Uslovi koristenja</div>;
+const TermsPage = () => {
+  return <div>USLOVI KORISTENJA PLACEHOLDER</div>;
 };
 
-export default UsloviKoristenja;
+export default TermsPage;

@@ -1,7 +1,5 @@
-import React from "react";
-
-const Impressum = () => {
-  return <div>Impressum</div>;
+const ImpressumPage = () => {
+  return <div>IMPRESSUM PLACEHOLDER</div>;
 };
 
-export default Impressum;
+export default ImpressumPage;

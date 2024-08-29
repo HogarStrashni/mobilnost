@@ -1,7 +1,5 @@
-import React from "react";
-
-const Pretraga = () => {
-  return <div>Pretraga</div>;
+const SearchPage = () => {
+  return <div>PRETRAGA PLACEHOLDER</div>;
 };
 
-export default Pretraga;
+export default SearchPage;
