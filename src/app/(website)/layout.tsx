@@ -41,7 +41,9 @@ const RootLayout = ({ children }: RootLayoutProps) => {
       >
         <div className="flex min-h-screen flex-col">
           <Header />
-          <main className="flex-1">{children}</main>
+          <main className="mx-auto my-8 w-full min-w-64 max-w-screen-2xl flex-1 px-2 font-roboto sm:px-4 md:px-8 lg:my-16 lg:px-12">
+            {children}
+          </main>
           <Footer />
         </div>
       </body>

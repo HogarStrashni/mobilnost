@@ -26,7 +26,7 @@ const CategorySection = ({
   }));
 
   return (
-    <div className={cn("mt-12 sm:mt-16 lg:mt-20", className)}>
+    <section className={cn("mt-12 sm:mt-16 lg:mt-20", className)}>
       <CategorySectionTitle
         category={category ?? ""}
         href={`/${slug}` ?? "/"}
@@ -37,7 +37,7 @@ const CategorySection = ({
           <ArticleCard key={article.slug} article={article} />
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 
