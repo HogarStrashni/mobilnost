@@ -1,5 +1,5 @@
-import ArticleAttachment from "./article-attachment";
-import ArticleSource from "./article-source";
+import ArticleAttachment from "@/components/custom-ui/articles/article-content/article-attachment";
+import ArticleSource from "@/components/custom-ui/articles/article-content/article-source";
 
 type ArticleFooterProps = {
   attachmentName: string;

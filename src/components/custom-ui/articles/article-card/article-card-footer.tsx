@@ -1,5 +1,5 @@
 import { ArrowRight } from "lucide-react";
-import ArticleShareButton from "../article-share-button";
+import ArticleShareButton from "@/components/custom-ui/articles/article-share-button";
 
 const ArticleCardFooter = () => {
   return (

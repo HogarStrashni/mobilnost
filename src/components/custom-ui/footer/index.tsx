@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { footerLinks } from "./links-list";
-import SocialMediaLinks from "../social-media-links";
+import { footerLinks } from "@/components/custom-ui/footer/links-list";
+import SocialMediaLinks from "@/components/custom-ui/social-media-links";
 
 const Footer = () => {
   const currentYear = new Date(Date.now()).getFullYear();
