@@ -3,31 +3,15 @@ import { IconProps } from "./props-interface";
 const FacebookIcon = ({ className }: IconProps) => {
   return (
     <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 48 48"
-      width="48px"
-      height="48px"
+      width="45"
+      height="74"
+      viewBox="0 0 45 74"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="5"
       className={className}
     >
-      <linearGradient
-        id="Ld6sqrtcxMyckEl6xeDdMa"
-        x1="9.993"
-        x2="40.615"
-        y1="9.993"
-        y2="40.615"
-        gradientUnits="userSpaceOnUse"
-      >
-        <stop offset="0" stopColor="#2aa4f4" />
-        <stop offset="1" stopColor="#007ad9" />
-      </linearGradient>
-      <path
-        fill="url(#Ld6sqrtcxMyckEl6xeDdMa)"
-        d="M24,4C12.954,4,4,12.954,4,24s8.954,20,20,20s20-8.954,20-20S35.046,4,24,4z"
-      />
-      <path
-        fill="#fff"
-        d="M26.707,29.301h5.176l0.813-5.258h-5.989v-2.874c0-2.184,0.714-4.121,2.757-4.121h3.283V12.46 c-0.577-0.078-1.797-0.248-4.102-0.248c-4.814,0-7.636,2.542-7.636,8.334v3.498H16.06v5.258h4.948v14.452 C21.988,43.9,22.981,44,24,44c0.921,0,1.82-0.084,2.707-0.204V29.301z"
-      />
+      <path d="M26.645 42.6953V72H13.1834V42.6953H2V30.8129H13.1834V26.4896C13.1834 10.4393 19.8883 2 34.0747 2C38.4238 2 39.5111 2.69896 41.8928 3.26849V15.0215C39.2263 14.5555 38.4756 14.2966 35.7056 14.2966C32.4179 14.2966 30.6575 15.2286 29.0525 17.0666C27.4475 18.9046 26.645 22.0888 26.645 26.645V30.8388H41.8928L37.8025 42.7212H26.645V42.6953Z" />
     </svg>
   );
 };
