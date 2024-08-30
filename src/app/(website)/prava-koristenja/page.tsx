@@ -1,5 +1,5 @@
 const TermsPage = () => {
-  return <div>USLOVI KORISTENJA PLACEHOLDER</div>;
+  return <div>PRAVA KORISTENJA PLACEHOLDER</div>;
 };
 
 export default TermsPage;
