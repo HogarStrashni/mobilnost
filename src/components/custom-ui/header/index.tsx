@@ -5,6 +5,7 @@ import { CATEGORY_QUERY } from "@/sanity/queries";
 import { CATEGORY_QUERYResult } from "@/sanity/types";
 
 import Logo from "@/components/custom-ui/header/logo";
+import Separator from "@/components/custom-ui/separator";
 import SocialMediaLinks from "@/components/custom-ui/social-media-links";
 import NavigationBar from "@/components/custom-ui/header/navigation-bar";
 import SideBar from "@/components/custom-ui/header/side-bar";
@@ -27,8 +28,8 @@ const Header = async () => {
           <SideBar allCategories={allCategories} />
         </div>
       </section>
-
-      <section className="hidden flex-col gap-5 text-gray-700 lg:flex">
+      <Separator className="h-0 border-t" />
+      <section className="mt-5 hidden flex-col gap-5 text-gray-700 lg:flex">
         <NavigationBar allCategories={allCategories} />
       </section>
     </header>

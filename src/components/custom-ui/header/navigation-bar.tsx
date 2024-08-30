@@ -11,7 +11,6 @@ type NavigationBarProps = {
 const NavigationBar = ({ allCategories }: NavigationBarProps) => {
   return (
     <>
-      <Separator className="h-0 border-t" />
       <div className="mx-auto flex w-full max-w-screen-2xl justify-center gap-6 px-2 sm:px-5 lg:px-12">
         <NavigationLink title="Home" slug="" />
         {allCategories.map(({ title, slug }) => (
