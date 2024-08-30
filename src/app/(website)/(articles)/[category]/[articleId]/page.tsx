@@ -68,7 +68,7 @@ const ArticlePage = async ({ params: { articleId } }: ArticlePageProps) => {
         sourceUrl={sourceUrl ?? ""}
       />
 
-      <ArticleShareButton className="static ml-auto mt-12" />
+      <ArticleShareButton className="static ml-auto mt-12" side="top" />
     </div>
   );
 };

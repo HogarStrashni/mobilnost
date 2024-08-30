@@ -23,7 +23,7 @@ const ArticleShareButton = ({
     <Popover open={isOpen}>
       <PopoverTrigger
         className={cn(
-          "absolute z-10 flex items-center gap-1 rounded border border-gray-100 px-2 py-0.5 font-oswald text-sm text-gray-500 duration-300 ease-out hover:bg-gray-50",
+          "absolute z-10 flex items-center gap-1 rounded-md border border-gray-100 px-2 py-0.5 font-oswald text-sm text-gray-500 duration-300 ease-out hover:bg-gray-50",
           className,
         )}
         onClick={(e) => {
@@ -34,7 +34,11 @@ const ArticleShareButton = ({
         <Share2 className="size-3" />
         <span className="pb-px">Podijeli</span>
       </PopoverTrigger>
-      <PopoverContent side={side}>
+      <PopoverContent
+        side={side}
+        onInteractOutside={() => setIsOpen(false)}
+        onEscapeKeyDown={() => setIsOpen(false)}
+      >
         Place content for the popover here.
       </PopoverContent>
     </Popover>
