@@ -1,9 +1,9 @@
 import { cn } from "@/lib/utils/tailwind";
 
-import FacebookIcon from "@/components/custom-ui/social-media-links/icons/facebook";
-import InstagramIcon from "@/components/custom-ui/social-media-links/icons/instagram";
-import LinkedinIcon from "@/components/custom-ui/social-media-links/icons/linkedin";
-import XIcon from "@/components/custom-ui/social-media-links/icons/x";
+import FacebookIcon from "@/assets/icons/facebook";
+import InstagramIcon from "@/assets/icons/instagram";
+import LinkedinIcon from "@/assets/icons/linkedin";
+import XIcon from "@/assets/icons/x";
 
 const allLinks = [
   {
