@@ -37,7 +37,7 @@ const RootLayout = ({ children }: RootLayoutProps) => {
   return (
     <html lang="en">
       <body
-        className={`${oswald.variable} ${inter.variable} ${roboto.variable} bg-gray-100`}
+        className={`${oswald.variable} ${inter.variable} ${roboto.variable} bg-gradient-to-r from-gray-50 via-gray-100 to-gray-50`}
       >
         <div className="flex min-h-screen flex-col">
           <Header />
