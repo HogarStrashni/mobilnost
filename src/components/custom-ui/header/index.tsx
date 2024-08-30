@@ -16,14 +16,14 @@ const Header = async () => {
 
   return (
     <header className="font-oswald">
-      <section className="mx-auto flex min-w-64 max-w-screen-2xl items-center justify-between gap-4 px-2 py-4 sm:px-5 sm:py-6 lg:px-12">
+      <section className="mx-auto flex min-w-64 max-w-screen-2xl items-center justify-between gap-4 px-4 py-4 sm:px-5 sm:py-6 lg:px-12">
         <Link href="/">
           <Logo />
         </Link>
-        <div className="flex items-center gap-3 border-gray-500 text-gray-500 lg:gap-6">
+        <div className="flex items-center gap-3 border-gray-700 text-gray-700 lg:gap-6">
           <SearchPageLink />
-          <span className="h-5 w-px bg-gray-300"></span>
-          <SocialMediaLinks className="hidden border-gray-500 text-gray-500 lg:flex" />
+          <span className="h-5 w-px bg-gray-400"></span>
+          <SocialMediaLinks className="hidden border-gray-700 text-gray-700 lg:flex" />
           <SideBar allCategories={allCategories} />
         </div>
       </section>
