@@ -8,6 +8,7 @@ import Logo from "@/components/custom-ui/header/logo";
 import SocialMediaLinks from "@/components/custom-ui/social-media-links";
 import NavigationBar from "@/components/custom-ui/header/navigation-bar";
 import SideBar from "@/components/custom-ui/header/side-bar";
+import SearchPageLink from "./search-page-link";
 
 const Header = async () => {
   const allCategories =
@@ -19,8 +20,12 @@ const Header = async () => {
         <Link href="/">
           <Logo />
         </Link>
-        <SocialMediaLinks className="hidden lg:flex" />
-        <SideBar allCategories={allCategories} />
+        <div className="flex items-center gap-3 border-gray-500 text-gray-500 lg:gap-6">
+          <SearchPageLink />
+          <span className="h-5 w-px bg-gray-300"></span>
+          <SocialMediaLinks className="hidden border-gray-500 text-gray-500 lg:flex" />
+          <SideBar allCategories={allCategories} />
+        </div>
       </section>
 
       <section className="hidden flex-col gap-5 text-gray-700 lg:flex">

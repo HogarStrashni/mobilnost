@@ -25,8 +25,10 @@ const SideBar = ({ allCategories }: SideBarProps) => {
 
   return (
     <Sheet>
-      <SheetTrigger className="p-3 lg:hidden">
-        <Menu />
+      <SheetTrigger className="lg:hidden">
+        <div className="flex size-9 items-center justify-center rounded-full border border-gray-500">
+          <Menu className="size-5" />
+        </div>
       </SheetTrigger>
       <SheetContent className="bg-green-primary font-oswald lg:hidden">
         <SheetHeader className="sr-only">
