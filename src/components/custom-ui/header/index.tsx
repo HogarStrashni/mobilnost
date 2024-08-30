@@ -16,7 +16,7 @@ const Header = async () => {
 
   return (
     <header className="font-oswald">
-      <section className="mx-auto flex max-w-screen-2xl items-center justify-between gap-4 px-2 py-4 sm:px-5 sm:py-6 lg:px-12">
+      <section className="mx-auto flex min-w-64 max-w-screen-2xl items-center justify-between gap-4 px-2 py-4 sm:px-5 sm:py-6 lg:px-12">
         <Link href="/">
           <Logo />
         </Link>

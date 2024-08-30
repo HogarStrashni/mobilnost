@@ -7,7 +7,7 @@ const Footer = () => {
 
   return (
     <footer className="bg-gray-800 font-oswald text-gray-200">
-      <div className="mx-auto flex w-full max-w-screen-2xl flex-col items-center justify-between gap-6 px-2 py-6 sm:px-4 md:px-8 lg:px-12">
+      <div className="mx-auto flex w-full min-w-64 max-w-screen-2xl flex-col items-center justify-between gap-6 px-2 py-6 sm:px-4 md:px-8 lg:px-12">
         <section className="flex w-full flex-col items-center gap-6 px-4 sm:flex-row sm:justify-between">
           <SocialMediaLinks className="border-gray-400 text-gray-400" />
           <div className="flex flex-col items-center gap-2 sm:flex-row sm:gap-6">
