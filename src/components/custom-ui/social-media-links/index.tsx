@@ -12,7 +12,7 @@ const allLinks = [
     href: "https://www.facebook.com",
   },
   {
-    name: "twitter",
+    name: "x",
     icon: <XIcon className="size-4" />,
     href: "https://www.x.com",
   },
