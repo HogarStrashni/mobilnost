@@ -28,7 +28,7 @@ const ArticleCard = ({
     <Link
       href={`/${category?.slug}/${slug}`}
       className={cn(
-        "flex flex-col justify-between gap-4 rounded bg-white p-4",
+        "group flex flex-col justify-between gap-4 rounded bg-white p-4",
         !largeSize && "shadow-sm",
       )}
     >
