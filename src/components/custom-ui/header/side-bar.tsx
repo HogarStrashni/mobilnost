@@ -27,7 +27,7 @@ const SideBar = ({ allCategories }: SideBarProps) => {
   return (
     <Sheet>
       <SheetTrigger className="lg:hidden">
-        <div className="flex size-9 items-center justify-center rounded-full border border-gray-700">
+        <div className="flex size-9 items-center justify-center rounded-full border border-gray-700 opacity-70 duration-300 ease-in-out hover:opacity-100">
           <Menu className="size-5" />
         </div>
       </SheetTrigger>

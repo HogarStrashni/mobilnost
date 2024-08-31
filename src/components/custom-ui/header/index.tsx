@@ -23,7 +23,7 @@ const Header = async () => {
         </Link>
         <div className="flex items-center gap-3 border-gray-700 text-gray-700 lg:gap-6">
           <SearchPageLink />
-          <span className="h-5 w-px bg-gray-400"></span>
+          <span className="h-5 w-px bg-gray-300"></span>
           <SocialMediaLinks className="hidden border-gray-700 text-gray-700 lg:flex" />
           <SideBar allCategories={allCategories} />
         </div>
