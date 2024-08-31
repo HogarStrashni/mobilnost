@@ -10,6 +10,12 @@ import {
   DialogTitle,
   DialogDescription,
 } from "@/components/ui/dialog";
+import {
+  EmailShareButton,
+  FacebookShareButton,
+  LinkedinShareButton,
+  TwitterShareButton,
+} from "react-share";
 import CopyLinkButton from "@/components/custom-ui/articles/article-share-dialog/copy-link-button";
 import SocialIcon from "@/components/custom-ui/articles/article-share-dialog/social-icon";
 import FacebookIcon from "@/assets/icons/facebook";
@@ -52,18 +58,29 @@ const ArticleShareDialog = ({ className }: ArticleShareDialogProps) => {
           Podijeli
         </span>
         <div className="mx-auto flex max-w-fit gap-2 min-[300px]:gap-4 min-[420px]:gap-8">
-          <SocialIcon title="Facebook">
-            <FacebookIcon className="size-4 sm:size-5" />
-          </SocialIcon>
-          <SocialIcon title="X">
-            <XIcon className="size-4 sm:size-5" />
-          </SocialIcon>
-          <SocialIcon title="Linkedin">
-            <LinkedinIcon className="size-4 sm:size-5" />
-          </SocialIcon>
-          <SocialIcon title="Mail">
-            <Mail className="size-4 sm:size-5" />
-          </SocialIcon>
+          <FacebookShareButton url={articleLink}>
+            <SocialIcon title="Facebook">
+              <FacebookIcon className="size-4 sm:size-5" />
+            </SocialIcon>
+          </FacebookShareButton>
+
+          <TwitterShareButton url={articleLink}>
+            <SocialIcon title="X">
+              <XIcon className="size-4 sm:size-5" />
+            </SocialIcon>
+          </TwitterShareButton>
+
+          <LinkedinShareButton url={articleLink}>
+            <SocialIcon title="Linkedin">
+              <LinkedinIcon className="size-4 sm:size-5" />
+            </SocialIcon>
+          </LinkedinShareButton>
+
+          <EmailShareButton url={articleLink}>
+            <SocialIcon title="Mail">
+              <Mail className="size-4 sm:size-5" />
+            </SocialIcon>
+          </EmailShareButton>
         </div>
       </DialogContent>
     </Dialog>
