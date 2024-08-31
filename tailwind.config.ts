@@ -18,6 +18,11 @@ const config = {
       },
     },
     extend: {
+      fontFamily: {
+        oswald: ["var(--font-oswald)"],
+        lora: ["var(--font-lora)"],
+        roboto: ["var(--font-roboto)"],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -52,6 +57,11 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        "green-primary": "#008080",
+        "purple-primary": "#800080",
+      },
+      screens: {
+        "2xl": "1320px",
       },
       borderRadius: {
         lg: "var(--radius)",

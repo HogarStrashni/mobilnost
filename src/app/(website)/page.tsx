@@ -1,26 +1,30 @@
-import CategorySection from "@/components/custom-ui/category-section";
 import { client } from "@/sanity/client";
-import { ARCTICLES_HOME_PAGE_QUERY } from "@/sanity/queries";
-import { ARCTICLES_HOME_PAGE_QUERYResult } from "@/sanity/types";
+import { ACTUAL_ARTICLES_QUERY, NEWEST_ARTICLES_QUERY } from "@/sanity/queries";
+import {
+  ACTUAL_ARTICLES_QUERYResult,
+  NEWEST_ARTICLES_QUERYResult,
+} from "@/sanity/types";
+
+import ActualArticles from "@/components/custom-ui/articles/actual-articles";
+import NewestArticles from "@/components/custom-ui/articles/newest-articles";
 
 const Home = async () => {
-  const data = await client.fetch<ARCTICLES_HOME_PAGE_QUERYResult>(
-    ARCTICLES_HOME_PAGE_QUERY,
-  );
+  const getActualArticles = async () =>
+    await client.fetch<ACTUAL_ARTICLES_QUERYResult>(ACTUAL_ARTICLES_QUERY);
 
-  const newestArticles = data.map(({ actualArticles, ...rest }) => rest);
+  const getNewestArticles = async () =>
+    await client.fetch<NEWEST_ARTICLES_QUERYResult>(NEWEST_ARTICLES_QUERY);
+
+  const [actualArticles, newestArticles] = await Promise.all([
+    getActualArticles(),
+    getNewestArticles(),
+  ]);
 
   return (
-    <div className="lg:border-r lg:pr-4">
-      {newestArticles.map(({ category, slug, newestArticles }) => (
-        <CategorySection
-          key={slug}
-          category={category}
-          slug={slug}
-          newestArticles={newestArticles}
-        />
-      ))}
-    </div>
+    <>
+      <ActualArticles articles={actualArticles} />
+      <NewestArticles articles={newestArticles} />
+    </>
   );
 };
 

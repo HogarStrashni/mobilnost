@@ -43,7 +43,7 @@ const article = {
       name: "content",
       title: "Sadrzaj clanka",
       description:
-        "Kreirati sadrzaj clanka na nacin kako ce isti biti prikazan (redosled je bitan). Ukoliko clanak ima izdeljene sekcije sa podnaslovima iste oznaciti sa 'Heading 3', a ukoliko neka od sekcija dalje ima svoje podnaslove, iste oznaciti sa Heading 4. Vertikalno odvajanje sadrzaja (podnaslov od teksta, teskt od fotografije, fotografiju od teksta ili naslova, pasuse i sl.) vrsiti samo prenosom u novi red (1 enter), NE PRAVITI DODATNA VERTIKALNA RASTOJANJA (PRAZNE REDOVE) IZMEDJU SADRZAJA CLANKA",
+        "Kreirati sadrzaj clanka na nacin kako ce isti biti prikazan (redosled je bitan). Ukoliko clanak ima izdeljene sekcije sa podnaslovima iste oznaciti sa 'Heading 2', a ukoliko neka od sekcija dalje ima svoje podnaslove, iste oznaciti sa Heading 3. Vertikalno odvajanje sadrzaja (podnaslov od teksta, teskt od fotografije, fotografiju od teksta ili naslova, pasuse i sl.) vrsiti samo prenosom u novi red (1 enter), NE PRAVITI DODATNA VERTIKALNA RASTOJANJA (PRAZNE REDOVE) IZMEDJU SADRZAJA CLANKA",
       type: "array",
       of: [
         { type: "block" },
@@ -129,14 +129,14 @@ const article = {
       title: "Dokument/prilog",
       type: "file",
       description:
-        "Ovo polje se popunjava ukoliko postoji dokument/prilog za clanak. Dokument (jedan ili vise njih) sacuvati u folder, pa onda isti folder nakon kompresije u .zip ili .rar formatu upload-ovati.",
+        "Ovo polje se popunjava ukoliko postoji dokument/prilog za clanak. Ukoliko je samo jedan fajl dirktno moze upload (ne postoji ogranicenje oko tipa fajla), a ukoliko je vise dokumenata iste je potrebno sacuvati u folder, pa taj folder nakon kompresije u .zip ili .rar formatu upload-ovati.",
       fields: [
         {
           name: "attachmentName",
           title: "Naziv priloga",
           type: "string",
           description:
-            "Kratak naziv priloga, ono sto ce biti vidljivo korisniku (verovatno sam naziv foldera, ali potpuno je proizvoljno sta ce pisati). Ovo polje je obavezno",
+            "Kratak naziv priloga, ono sto ce biti vidljivo korisniku (verovatno sam naziv fajla/foldera, ali potpuno je proizvoljno sta ce pisati). Ovo polje je obavezno",
         },
       ],
     },
