@@ -7,8 +7,9 @@ import ArticleAuthor from "@/components/custom-ui/articles/article-author";
 import ArticleDate from "@/components/custom-ui/articles/article-date";
 import ArticleCategory from "@/components/custom-ui/articles/article-category";
 import ArticleTag from "@/components/custom-ui/articles/article-tag";
-import ArticleShareButton from "@/components/custom-ui/articles/article-share-button";
+import ArticleShareDialog from "@/components/custom-ui/articles/article-share-dialog";
 import ArticleFooter from "@/components/custom-ui/articles/article-content/article-footer";
+import { Frown } from "lucide-react";
 
 type ArticlePageProps = {
   params: {
@@ -34,9 +35,18 @@ const ArticlePage = async ({ params: { articleId } }: ArticlePageProps) => {
     attacmentUrl,
   } = data ?? {};
 
+  if (!data) {
+    return (
+      <div className="flex w-full items-center justify-center gap-2 font-oswald sm:text-lg lg:justify-start lg:text-xl">
+        Članak nije pronađen!
+        <Frown className="size-5 lg:size-6" />
+      </div>
+    );
+  }
+
   return (
     <div className="w-full max-w-none rounded bg-white p-4 sm:p-6">
-      <ArticleShareButton className="static mb-6 ml-auto" />
+      <ArticleShareDialog className="mb-6 ml-auto" />
 
       <div className="flex gap-2">
         {tags?.map(({ title }) => (
@@ -68,7 +78,7 @@ const ArticlePage = async ({ params: { articleId } }: ArticlePageProps) => {
         sourceUrl={sourceUrl ?? ""}
       />
 
-      <ArticleShareButton className="static ml-auto mt-12" side="top" />
+      <ArticleShareDialog className="ml-auto mt-12" />
     </div>
   );
 };
