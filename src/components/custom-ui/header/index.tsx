@@ -28,7 +28,7 @@ const Header = async () => {
           <SideBar allCategories={allCategories} />
         </div>
       </section>
-      <Separator className="h-0 border-t" />
+      <Separator className="mx-auto h-0 max-w-[1256px] border-t" />
       <section className="mt-5 hidden flex-col gap-5 text-gray-700 lg:flex">
         <NavigationBar allCategories={allCategories} />
       </section>

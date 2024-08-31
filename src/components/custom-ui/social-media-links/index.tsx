@@ -12,6 +12,11 @@ const allLinks = [
     href: "https://www.facebook.com",
   },
   {
+    name: "twitter",
+    icon: <XIcon className="size-4" />,
+    href: "https://www.x.com",
+  },
+  {
     name: "instagram",
     icon: <InstagramIcon className="size-4" />,
     href: "https://www.instagram.com",
@@ -20,11 +25,6 @@ const allLinks = [
     name: "linkedin",
     icon: <LinkedinIcon className="size-4" />,
     href: "https://www.linkedin.com",
-  },
-  {
-    name: "twitter",
-    icon: <XIcon className="size-4" />,
-    href: "https://www.x.com",
   },
 ];
 
