@@ -41,7 +41,7 @@ const SearchPage = async ({ searchParams }: SearchPageProps) => {
         message={`Ukupno ${articlesCount} rezultata pretrage: "${searchParamQ}"`}
       />
 
-      <div className="mt-4 grid gap-4 sm:grid-cols-2">
+      <section className="mt-4 grid gap-4 sm:grid-cols-2">
         {searchedArticles.map((article) => {
           return (
             <ArticleCard
@@ -52,7 +52,7 @@ const SearchPage = async ({ searchParams }: SearchPageProps) => {
             />
           );
         })}
-      </div>
+      </section>
     </>
   );
 };
