@@ -37,7 +37,7 @@ const ArticlePage = async ({ params: { articleId } }: ArticlePageProps) => {
 
   if (!data) {
     return (
-      <div className="flex w-full items-center justify-center gap-2 font-oswald sm:text-lg lg:justify-start lg:text-xl">
+      <div className="flex items-center justify-center gap-2 rounded bg-white py-4 font-oswald shadow-sm sm:text-lg lg:text-xl">
         Članak nije pronađen!
         <Frown className="size-5 lg:size-6" />
       </div>

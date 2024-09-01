@@ -27,7 +27,7 @@ const CategoryLayout = async ({ children }: RootLayoutProps) => {
             <ArticleCard
               key={article.slug}
               article={article}
-              actualArticle
+              showCategory
               showCoverImage={false}
             />
           ))}

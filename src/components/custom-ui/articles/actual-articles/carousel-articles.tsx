@@ -55,7 +55,7 @@ const CarouselArticles = ({ data, className }: CarouselArticlesProps) => {
       <CarouselContent>
         {data.map((article, index) => (
           <CarouselItem key={index}>
-            <ArticleCard article={article} largeSize />
+            <ArticleCard article={article} largeSize showCategory showExcerpt />
           </CarouselItem>
         ))}
       </CarouselContent>
