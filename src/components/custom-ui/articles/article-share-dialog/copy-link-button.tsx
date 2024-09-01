@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Check, Link } from "lucide-react";
 import SocialIcon from "@/components/custom-ui/articles/article-share-dialog/social-icon";
+import { Check, Link } from "lucide-react";
 
 type CopyLinkButtonProps = {
   articleLink: string;

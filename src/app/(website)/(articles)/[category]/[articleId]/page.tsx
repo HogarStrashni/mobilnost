@@ -9,7 +9,7 @@ import ArticleCategory from "@/components/custom-ui/articles/article-category";
 import ArticleTag from "@/components/custom-ui/articles/article-tag";
 import ArticleShareDialog from "@/components/custom-ui/articles/article-share-dialog";
 import ArticleFooter from "@/components/custom-ui/articles/article-content/article-footer";
-import { Frown } from "lucide-react";
+import PageNotFound from "@/components/custom-ui/articles/page-not-found";
 
 type ArticlePageProps = {
   params: {
@@ -36,12 +36,7 @@ const ArticlePage = async ({ params: { articleId } }: ArticlePageProps) => {
   } = data ?? {};
 
   if (!data) {
-    return (
-      <div className="flex w-full items-center justify-center gap-2 font-oswald sm:text-lg lg:justify-start lg:text-xl">
-        Članak nije pronađen!
-        <Frown className="size-5 lg:size-6" />
-      </div>
-    );
+    return <PageNotFound>Članak nije pronađen!</PageNotFound>;
   }
 
   return (
@@ -49,8 +44,8 @@ const ArticlePage = async ({ params: { articleId } }: ArticlePageProps) => {
       <ArticleShareDialog className="mb-6 ml-auto" />
 
       <div className="flex gap-2">
-        {tags?.map(({ title }) => (
-          <ArticleTag key={title} title={title ?? ""} />
+        {tags?.map(({ title, slug }) => (
+          <ArticleTag key={title} title={title} slug={slug} />
         ))}
       </div>
 

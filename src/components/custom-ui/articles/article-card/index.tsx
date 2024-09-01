@@ -11,15 +11,17 @@ import ArticleCardFooter from "@/components/custom-ui/articles/article-card/arti
 type ArticleCardProps = {
   article: ACTUAL_ARTICLES_QUERYResult[0];
   largeSize?: boolean;
-  actualArticle?: boolean;
+  showCategory?: boolean;
   showCoverImage?: boolean;
+  showExcerpt?: boolean;
 };
 
 const ArticleCard = ({
   article,
   largeSize,
-  actualArticle = false,
+  showCategory = false,
   showCoverImage = true,
+  showExcerpt = false,
 }: ArticleCardProps) => {
   const { title, coverImage, author, excerpt, published, category, slug } =
     article;
@@ -45,7 +47,7 @@ const ArticleCard = ({
         )}
 
         <div className="flex h-3.5 items-center">
-          {actualArticle || largeSize ? (
+          {showCategory ? (
             <ArticleCategory title={category?.title ?? ""} />
           ) : (
             <ArticleAuthor author={author ?? ""} />
@@ -64,7 +66,7 @@ const ArticleCard = ({
             {title}
           </h2>
 
-          {!actualArticle && (
+          {showExcerpt && (
             <p
               className={cn(
                 "line-clamp-3 text-sm text-gray-600",

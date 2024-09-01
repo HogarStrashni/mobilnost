@@ -9,7 +9,7 @@ import Separator from "@/components/custom-ui/separator";
 import SocialMediaLinks from "@/components/custom-ui/social-media-links";
 import NavigationBar from "@/components/custom-ui/header/navigation-bar";
 import SideBar from "@/components/custom-ui/header/side-bar";
-import SearchPageLink from "./search-page-link";
+import SearchPageLink from "@/components/custom-ui/header/search-page-link";
 
 const Header = async () => {
   const allCategories =

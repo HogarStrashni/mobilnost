@@ -413,3 +413,38 @@ export type ARTICLE_QUERYResult = {
   attachmentName: string | null;
   attacmentUrl: string | null;
 } | null;
+// Variable: TAGS_QUERY
+// Query:   *[_type == "tag"] {    title,    "slug":slug.current    }
+export type TAGS_QUERYResult = Array<{
+  title: string | null;
+  slug: string | null;
+}>;
+// Variable: ARTICLES_BY_TAG_QUERY
+// Query:   *[_type == "article" && references(*[_type == "tag" && slug.current == $tag]._id)] | order(_createdAt desc){    title,    author,    "slug": slug.current,    "published": _createdAt,    "category": articleCategory -> {title, "slug": slug.current},    coverImage,    excerpt,    "tags": tags[]->{title, "slug": slug.current}  }
+export type ARTICLES_BY_TAG_QUERYResult = Array<{
+  title: string | null;
+  author: string | null;
+  slug: string | null;
+  published: string;
+  category: {
+    title: string | null;
+    slug: string | null;
+  } | null;
+  coverImage: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+  } | null;
+  excerpt: string | null;
+  tags: Array<{
+    title: string | null;
+    slug: string | null;
+  }> | null;
+}>;

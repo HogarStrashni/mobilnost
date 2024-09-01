@@ -1,15 +1,18 @@
+import Link from "next/link";
+
 type ArticleTagProps = {
-  title: string;
+  title: string | null;
+  slug: string | null;
 };
 
-const ArticleTag = ({ title }: ArticleTagProps) => {
+const ArticleTag = ({ title = "", slug = "" }: ArticleTagProps) => {
   return (
-    <span
-      key={title}
-      className="rounded bg-gradient-to-br from-green-primary/80 to-purple-primary/80 px-2 py-0.5 font-oswald text-sm uppercase text-white"
+    <Link
+      href={`/tagovi/${slug}`}
+      className="rounded bg-gradient-to-br from-green-primary/70 to-purple-primary/70 px-2 py-0.5 font-oswald text-sm uppercase text-white duration-300 ease-in-out hover:from-green-primary/90 hover:to-purple-primary/90"
     >
       {title}
-    </span>
+    </Link>
   );
 };
 

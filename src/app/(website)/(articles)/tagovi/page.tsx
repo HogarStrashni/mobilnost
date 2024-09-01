@@ -1,5 +1,7 @@
+import PageNotFound from "@/components/custom-ui/articles/page-not-found";
+
 const TagsPage = () => {
-  return <div>TAGOVI PLACEHOLDER</div>;
+  return <PageNotFound>Stranica nije pronađena!</PageNotFound>;
 };
 
 export default TagsPage;
