@@ -1,4 +1,8 @@
+import { client } from "@/sanity/client";
+import { ARTICLES_BY_SEARCH_QUERY } from "@/sanity/queries";
+import { ARTICLES_BY_SEARCH_QUERYResult } from "@/sanity/types";
 import SearchFormSection from "@/components/custom-ui/search-form-section";
+import ArticleCard from "@/components/custom-ui/articles/article-card";
 
 type SearchPageProps = {
   searchParams: { [key: string]: string | string[] | undefined };
@@ -23,11 +27,33 @@ const SearchPage = async ({ searchParams }: SearchPageProps) => {
       />
     );
 
+  const searchedArticles = await client.fetch<ARTICLES_BY_SEARCH_QUERYResult>(
+    ARTICLES_BY_SEARCH_QUERY,
+    { searchQuery: `*${searchParamQ}*` },
+  );
+
+  const articlesCount = searchedArticles.length;
+
   return (
-    <SearchFormSection
-      searchValue={searchParamQ}
-      message={`Ukupno 5 rezultata pretrage: "${searchParamQ}"`}
-    />
+    <>
+      <SearchFormSection
+        searchValue={searchParamQ}
+        message={`Ukupno ${articlesCount} rezultata pretrage: "${searchParamQ}"`}
+      />
+
+      <div className="mt-4 grid gap-4 sm:grid-cols-2">
+        {searchedArticles.map((article) => {
+          return (
+            <ArticleCard
+              key={article.slug}
+              article={article}
+              showCategory
+              showExcerpt
+            />
+          );
+        })}
+      </div>
+    </>
   );
 };
 

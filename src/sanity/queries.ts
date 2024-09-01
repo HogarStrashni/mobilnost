@@ -77,3 +77,15 @@ export const ARTICLES_BY_TAG_QUERY = groq`
     excerpt,
     "tags": tags[]->{title, "slug": slug.current}
   }`;
+
+export const ARTICLES_BY_SEARCH_QUERY = groq`
+  *[_type == "article" && title match $searchQuery] | order(_createdAt desc){
+    title,
+    author,
+    "slug": slug.current,
+    "published": _createdAt,
+    "category": articleCategory -> {title, "slug": slug.current},
+    coverImage,
+    excerpt,
+    "tags": tags[]->{title, "slug": slug.current}
+  }`;

@@ -448,3 +448,32 @@ export type ARTICLES_BY_TAG_QUERYResult = Array<{
     slug: string | null;
   }> | null;
 }>;
+// Variable: ARTICLES_BY_SEARCH_QUERY
+// Query:   *[_type == "article" && title match $searchQuery] | order(_createdAt desc){    title,    author,    "slug": slug.current,    "published": _createdAt,    "category": articleCategory -> {title, "slug": slug.current},    coverImage,    excerpt,    "tags": tags[]->{title, "slug": slug.current}  }
+export type ARTICLES_BY_SEARCH_QUERYResult = Array<{
+  title: string | null;
+  author: string | null;
+  slug: string | null;
+  published: string;
+  category: {
+    title: string | null;
+    slug: string | null;
+  } | null;
+  coverImage: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+  } | null;
+  excerpt: string | null;
+  tags: Array<{
+    title: string | null;
+    slug: string | null;
+  }> | null;
+}>;
