@@ -1,12 +1,7 @@
-import { Frown } from "lucide-react";
+import PageNotFound from "@/components/custom-ui/articles/page-not-found";
 
 const TagsPage = () => {
-  return (
-    <div className="flex items-center justify-center gap-2 rounded bg-white py-4 font-oswald shadow-sm sm:text-lg lg:text-xl">
-      Stranica nije pronađena!
-      <Frown className="size-5 lg:size-6" />
-    </div>
-  );
+  return <PageNotFound>Stranica nije pronađena!</PageNotFound>;
 };
 
 export default TagsPage;

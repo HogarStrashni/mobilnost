@@ -9,7 +9,7 @@ import ArticleCategory from "@/components/custom-ui/articles/article-category";
 import ArticleTag from "@/components/custom-ui/articles/article-tag";
 import ArticleShareDialog from "@/components/custom-ui/articles/article-share-dialog";
 import ArticleFooter from "@/components/custom-ui/articles/article-content/article-footer";
-import { Frown } from "lucide-react";
+import PageNotFound from "@/components/custom-ui/articles/page-not-found";
 
 type ArticlePageProps = {
   params: {
@@ -36,12 +36,7 @@ const ArticlePage = async ({ params: { articleId } }: ArticlePageProps) => {
   } = data ?? {};
 
   if (!data) {
-    return (
-      <div className="flex items-center justify-center gap-2 rounded bg-white py-4 font-oswald shadow-sm sm:text-lg lg:text-xl">
-        Članak nije pronađen!
-        <Frown className="size-5 lg:size-6" />
-      </div>
-    );
+    return <PageNotFound>Članak nije pronađen!</PageNotFound>;
   }
 
   return (
