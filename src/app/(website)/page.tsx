@@ -10,10 +10,18 @@ import NewestArticles from "@/components/custom-ui/articles/newest-articles";
 
 const Home = async () => {
   const getActualArticles = async () =>
-    await client.fetch<ACTUAL_ARTICLES_QUERYResult>(ACTUAL_ARTICLES_QUERY);
+    await client.fetch<ACTUAL_ARTICLES_QUERYResult>(
+      ACTUAL_ARTICLES_QUERY,
+      {},
+      { next: { revalidate: 300 } },
+    );
 
   const getNewestArticles = async () =>
-    await client.fetch<NEWEST_ARTICLES_QUERYResult>(NEWEST_ARTICLES_QUERY);
+    await client.fetch<NEWEST_ARTICLES_QUERYResult>(
+      NEWEST_ARTICLES_QUERY,
+      {},
+      { next: { revalidate: 300 } },
+    );
 
   const [actualArticles, newestArticles] = await Promise.all([
     getActualArticles(),

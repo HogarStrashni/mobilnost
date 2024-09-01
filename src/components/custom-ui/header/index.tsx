@@ -12,8 +12,11 @@ import SideBar from "@/components/custom-ui/header/side-bar";
 import SearchPageLink from "@/components/custom-ui/header/search-page-link";
 
 const Header = async () => {
-  const allCategories =
-    await client.fetch<CATEGORY_QUERYResult>(CATEGORY_QUERY);
+  const allCategories = await client.fetch<CATEGORY_QUERYResult>(
+    CATEGORY_QUERY,
+    {},
+    { next: { revalidate: 3600 } },
+  );
 
   return (
     <header className="font-oswald">

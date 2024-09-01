@@ -30,6 +30,7 @@ const SearchPage = async ({ searchParams }: SearchPageProps) => {
   const searchedArticles = await client.fetch<ARTICLES_BY_SEARCH_QUERYResult>(
     ARTICLES_BY_SEARCH_QUERY,
     { searchQuery: `*${searchParamQ}*` },
+    { next: { revalidate: 600 } },
   );
 
   const articlesCount = searchedArticles.length;
