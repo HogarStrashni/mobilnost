@@ -16,8 +16,11 @@ type CategoryPageProps = {
 };
 
 const CategoryPage = async ({ params: { category } }: CategoryPageProps) => {
-  const allCategories =
-    await client.fetch<CATEGORY_QUERYResult>(CATEGORY_QUERY);
+  const allCategories = await client.fetch<CATEGORY_QUERYResult>(
+    CATEGORY_QUERY,
+    {},
+    { next: { revalidate: 3600 } },
+  );
 
   if (!allCategories.some((cat) => cat.slug === category)) {
     return <PageNotFound>Stranica nije pronađena!</PageNotFound>;
@@ -26,6 +29,7 @@ const CategoryPage = async ({ params: { category } }: CategoryPageProps) => {
   const articles = await client.fetch<ARTICLES_BY_CATEGORY_QUERYResult>(
     ARTICLES_BY_CATEGORY_QUERY,
     { category },
+    { next: { revalidate: 3600 } },
   );
 
   const title = articles[0]?.category?.title || category.replace("-", " ");

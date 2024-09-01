@@ -13,6 +13,8 @@ type RootLayoutProps = Readonly<{
 const CategoryLayout = async ({ children }: RootLayoutProps) => {
   const actualArticles = await client.fetch<ACTUAL_ARTICLES_QUERYResult>(
     ACTUAL_ARTICLES_QUERY,
+    {},
+    { next: { revalidate: 300 } },
   );
 
   return (

@@ -18,9 +18,11 @@ type ArticlePageProps = {
 };
 
 const ArticlePage = async ({ params: { articleId } }: ArticlePageProps) => {
-  const data = await client.fetch<ARTICLE_QUERYResult>(ARTICLE_QUERY, {
-    articleSlug: articleId,
-  });
+  const data = await client.fetch<ARTICLE_QUERYResult>(
+    ARTICLE_QUERY,
+    { articleSlug: articleId },
+    { next: { revalidate: 300 } },
+  );
 
   const {
     title,
