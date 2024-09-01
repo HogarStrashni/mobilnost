@@ -49,8 +49,8 @@ const ArticlePage = async ({ params: { articleId } }: ArticlePageProps) => {
       <ArticleShareDialog className="mb-6 ml-auto" />
 
       <div className="flex gap-2">
-        {tags?.map(({ title }) => (
-          <ArticleTag key={title} title={title ?? ""} />
+        {tags?.map(({ title, slug }) => (
+          <ArticleTag key={title} title={title} slug={slug} />
         ))}
       </div>
 
