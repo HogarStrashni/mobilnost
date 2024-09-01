@@ -59,3 +59,21 @@ export const ARTICLE_QUERY = groq`
     "attachmentName": attachment.attachmentName,
     "attacmentUrl": attachment.asset->url
   }`;
+
+export const TAGS_QUERY = groq`
+  *[_type == "tag"] {
+    title,
+    "slug":slug.current
+    }`;
+
+export const ARTICLES_BY_TAG_QUERY = groq`
+  *[_type == "article" && references(*[_type == "tag" && slug.current == $currentTag]._id)] | order(_createdAt desc){
+    title,
+    author,
+    "slug": slug.current,
+    "published": _createdAt,
+    "category": articleCategory -> {title, "slug": slug.current},
+    coverImage,
+    excerpt,
+    "tags": tags[]->{title, "slug": slug.current}
+  }`;
