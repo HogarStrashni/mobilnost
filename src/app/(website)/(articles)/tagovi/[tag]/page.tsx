@@ -1,9 +1,9 @@
-import ArticleCard from "@/components/custom-ui/articles/article-card";
-import CategorySectionTitle from "@/components/custom-ui/articles/category-section/category-section-title";
-import PageNotFound from "@/components/custom-ui/articles/page-not-found";
 import { client } from "@/sanity/client";
 import { ARTICLES_BY_TAG_QUERY, TAGS_QUERY } from "@/sanity/queries";
 import { ARTICLES_BY_TAG_QUERYResult, TAGS_QUERYResult } from "@/sanity/types";
+import ArticleCard from "@/components/custom-ui/articles/article-card";
+import CategorySectionTitle from "@/components/custom-ui/articles/category-section/category-section-title";
+import PageNotFound from "@/components/custom-ui/articles/page-not-found";
 
 type TagPageProps = {
   params: {

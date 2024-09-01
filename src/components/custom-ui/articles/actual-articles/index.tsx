@@ -1,7 +1,7 @@
 "use client";
 
-import { ACTUAL_ARTICLES_QUERYResult } from "@/sanity/types";
 import { cn } from "@/lib/utils/tailwind";
+import { ACTUAL_ARTICLES_QUERYResult } from "@/sanity/types";
 
 import CarouselArticles from "@/components/custom-ui/articles/actual-articles/carousel-articles";
 import NonCarouselArticles from "@/components/custom-ui/articles/actual-articles//non-carousel-articles";
