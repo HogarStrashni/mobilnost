@@ -15,7 +15,7 @@ const SearchFormSection = ({
   return (
     <section
       className={cn(
-        "flex flex-col items-center justify-center gap-6 rounded bg-white py-4 font-oswald text-gray-700 shadow-sm sm:text-lg lg:text-xl",
+        "flex flex-col items-center justify-center gap-6 rounded bg-white py-6 font-oswald text-gray-700 shadow-sm sm:text-lg lg:text-xl",
         className,
       )}
     >
