@@ -40,7 +40,9 @@ const CategoryPage = async ({ params: { category } }: CategoryPageProps) => {
 
       <div className="grid gap-4 sm:grid-cols-2">
         {articles.map((article) => {
-          return <ArticleCard key={article.slug} article={article} />;
+          return (
+            <ArticleCard key={article.slug} article={article} showExcerpt />
+          );
         })}
       </div>
     </div>
