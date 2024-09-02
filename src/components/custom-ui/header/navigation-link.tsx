@@ -6,9 +6,10 @@ import { useActiveLink } from "@/lib/hooks/use-active-link";
 type NavigationLinkProps = {
   title: string;
   slug: string;
+  className?: string;
 };
 
-const NavigationLink = ({ title, slug }: NavigationLinkProps) => {
+const NavigationLink = ({ title, slug, className }: NavigationLinkProps) => {
   const isActiveLink = useActiveLink();
   return (
     <Link
@@ -18,6 +19,7 @@ const NavigationLink = ({ title, slug }: NavigationLinkProps) => {
         isActiveLink(slug)
           ? "bg-gradient-to-br from-green-primary to-purple-primary bg-clip-text text-transparent"
           : "hover:text-gray-900",
+        className,
       )}
     >
       {title}
