@@ -39,7 +39,7 @@ const SearchPage = async ({ searchParams }: SearchPageProps) => {
     <>
       <SearchFormSection
         searchValue={searchParamQ}
-        message={`Ukupno ${articlesCount} rezultata pretrage: "${searchParamQ}"`}
+        message={`Ukupno ${articlesCount} ${articlesCount === 1 ? "rezultat" : "rezultata"} pretrage: "${searchParamQ}"`}
       />
 
       <section className="mt-4 grid gap-4 sm:grid-cols-2">
