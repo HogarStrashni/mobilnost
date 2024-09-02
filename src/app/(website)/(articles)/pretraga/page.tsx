@@ -34,12 +34,13 @@ const SearchPage = async ({ searchParams }: SearchPageProps) => {
   );
 
   const articlesCount = searchedArticles.length;
+  const result = articlesCount === 1 ? "rezultat" : "rezultata";
 
   return (
     <>
       <SearchFormSection
         searchValue={searchParamQ}
-        message={`Ukupno ${articlesCount} ${articlesCount === 1 ? "rezultat" : "rezultata"} pretrage: "${searchParamQ}"`}
+        message={`Ukupno ${articlesCount} ${result} pretrage: "${searchParamQ}"`}
       />
 
       <section className="mt-4 grid gap-4 sm:grid-cols-2">
