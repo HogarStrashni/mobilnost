@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import { FormEvent, useState } from "react";
 import { cn } from "@/lib/utils/tailwind";
-import { Search } from "lucide-react";
+import { Search, X } from "lucide-react";
 
 type SearchFormProps = {
   searchValue: string;
@@ -19,6 +19,11 @@ const SearchForm = ({ searchValue = "", className }: SearchFormProps) => {
     router.push(searchTerm ? `/pretraga?q=${searchTerm}` : "/pretraga");
   };
 
+  const clearSearch = () => {
+    setSearchTerm("");
+    router.push("/pretraga");
+  };
+
   return (
     <form
       onSubmit={handleSubmit}
@@ -27,11 +32,23 @@ const SearchForm = ({ searchValue = "", className }: SearchFormProps) => {
         className,
       )}
     >
-      <input
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-        className="h-10 w-full max-w-sm rounded-md border border-gray-400 text-center font-roboto text-sm shadow-sm sm:text-base"
-      />
+      <div className="relative flex w-full max-w-sm">
+        <input
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className="h-10 w-full rounded-md border border-gray-400 px-8 text-center font-roboto text-sm shadow-sm sm:text-base"
+        />
+        <button
+          type="reset"
+          onClick={clearSearch}
+          className={cn(
+            "absolute right-0 top-1 p-2 text-gray-400 duration-200 ease-in-out hover:text-gray-500",
+            searchTerm ? "opacity-100" : "opacity-0",
+          )}
+        >
+          <X className="size-4" />
+        </button>
+      </div>
       <button
         type="submit"
         className="mx-auto flex max-w-fit flex-col items-center justify-center opacity-70 duration-200 ease-in-out hover:cursor-pointer hover:opacity-100"
