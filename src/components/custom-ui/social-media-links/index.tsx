@@ -1,7 +1,6 @@
 import { cn } from "@/lib/utils/tailwind";
 
 import FacebookIcon from "@/assets/icons/facebook";
-import InstagramIcon from "@/assets/icons/instagram";
 import LinkedinIcon from "@/assets/icons/linkedin";
 import XIcon from "@/assets/icons/x";
 
@@ -15,11 +14,6 @@ const allLinks = [
     name: "x",
     icon: <XIcon className="size-4" />,
     href: "https://www.x.com",
-  },
-  {
-    name: "instagram",
-    icon: <InstagramIcon className="size-4" />,
-    href: "https://www.instagram.com",
   },
   {
     name: "linkedin",
