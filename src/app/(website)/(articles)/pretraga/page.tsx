@@ -34,14 +34,24 @@ const SearchPage = async ({ searchParams }: SearchPageProps) => {
   );
 
   const articlesCount = searchedArticles.length;
+
   const result = articlesCount === 1 ? "rezultat" : "rezultata";
+  let message = "";
+
+  switch (articlesCount) {
+    case 0:
+      message = `Nema rezultata pretrage: "${searchParamQ}"`;
+      break;
+    case 1:
+      message = `Ukupno ${articlesCount} rezultat pretrage: "${searchParamQ}"`;
+      break;
+    default:
+      message = `Ukupno ${articlesCount} rezultata pretrage: "${searchParamQ}"`;
+  }
 
   return (
     <>
-      <SearchFormSection
-        searchValue={searchParamQ}
-        message={`Ukupno ${articlesCount} ${result} pretrage: "${searchParamQ}"`}
-      />
+      <SearchFormSection searchValue={searchParamQ} message={message} />
 
       <section className="mt-4 grid gap-4 sm:grid-cols-2">
         {searchedArticles.map((article) => {
