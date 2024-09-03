@@ -15,7 +15,7 @@ const TagPage = async ({ params: { tag } }: TagPageProps) => {
   const allTags = await client.fetch<TAGS_QUERYResult>(
     TAGS_QUERY,
     {},
-    { next: { revalidate: 600 } },
+    { next: { revalidate: 60 } },
   );
 
   // minimize database queries with early return
@@ -26,7 +26,7 @@ const TagPage = async ({ params: { tag } }: TagPageProps) => {
   const articlesByTag = await client.fetch<ARTICLES_BY_TAG_QUERYResult>(
     ARTICLES_BY_TAG_QUERY,
     { currentTag: tag },
-    { next: { revalidate: 600 } },
+    { next: { revalidate: 60 } },
   );
 
   return (

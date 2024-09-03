@@ -13,14 +13,14 @@ const Home = async () => {
     await client.fetch<ACTUAL_ARTICLES_QUERYResult>(
       ACTUAL_ARTICLES_QUERY,
       {},
-      { next: { revalidate: 300 } },
+      { next: { revalidate: 60 } },
     );
 
   const getNewestArticles = async () =>
     await client.fetch<NEWEST_ARTICLES_QUERYResult>(
       NEWEST_ARTICLES_QUERY,
       {},
-      { next: { revalidate: 300 } },
+      { next: { revalidate: 60 } },
     );
 
   const [actualArticles, newestArticles] = await Promise.all([

@@ -15,7 +15,7 @@ const Header = async () => {
   const allCategories = await client.fetch<CATEGORY_QUERYResult>(
     CATEGORY_QUERY,
     {},
-    { next: { revalidate: 3600 } },
+    { next: { revalidate: 60 } },
   );
 
   return (

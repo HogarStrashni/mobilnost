@@ -19,7 +19,7 @@ const CategoryPage = async ({ params: { category } }: CategoryPageProps) => {
   const allCategories = await client.fetch<CATEGORY_QUERYResult>(
     CATEGORY_QUERY,
     {},
-    { next: { revalidate: 3600 } },
+    { next: { revalidate: 60 } },
   );
 
   if (!allCategories.some((cat) => cat.slug === category)) {
@@ -29,7 +29,7 @@ const CategoryPage = async ({ params: { category } }: CategoryPageProps) => {
   const articles = await client.fetch<ARTICLES_BY_CATEGORY_QUERYResult>(
     ARTICLES_BY_CATEGORY_QUERY,
     { category },
-    { next: { revalidate: 3600 } },
+    { next: { revalidate: 60 } },
   );
 
   const title = articles[0]?.category?.title || category.replace("-", " ");
