@@ -1,5 +1,5 @@
 export const convertToCountdown = (now: number) => {
-  const deadLine = new Date("2024-10-01T00:00:00Z").getTime();
+  const deadLine = new Date("2025-03-01T00:00:00Z").getTime();
   const distance = deadLine - now;
   return {
     days: Math.floor(distance / (1000 * 86400)),
